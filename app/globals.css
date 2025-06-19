@@ -94,16 +94,43 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-display: swap;
+  }
+  
+  /* Optimize font loading */
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
   }
 }
 
 @layer utilities {
   .animate-fade-in-blur {
-    animation: fade-in-blur 0.8s ease-out forwards;
+    animation: fade-in-blur 0.6s ease-out forwards;
   }
   
   .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
+    animation: fade-in-up 0.4s ease-out forwards;
+  }
+  
+  /* Optimize scrolling */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-blur,
+    .animate-fade-in-up,
+    .animate-scroll {
+      animation: none;
+    }
+    
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
   }
 }
 
@@ -142,4 +169,50 @@
 
 .animate-scroll {
   animation: scroll 20s linear infinite;
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-scroll {
+  will-change: scroll-position;
+}
+
+/* Optimize images */
+img {
+  content-visibility: auto;
+}
+
+/* Optimize heavy animations */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-aurora {
+    animation: aurora 60s linear infinite;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Reduce blur effects on mobile for better performance */
+  .backdrop-blur-sm {
+    backdrop-filter: blur(2px);
+  }
+  
+  .backdrop-blur-lg {
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

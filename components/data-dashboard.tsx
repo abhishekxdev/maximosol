@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { memo } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
@@ -10,27 +10,73 @@ import {
   Target, 
   Clock, 
   CheckCircle, 
-  AlertCircle,
   BarChart3,
   Activity,
   Database,
-  Zap,
   Globe
 } from 'lucide-react'
 
+// Memoized components for better performance
+const MetricCard = memo(({ metric, index }: { metric: any, index: number }) => (
+  <Card className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
+    <CardContent className="p-3 sm:p-4">
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">{metric.title}</p>
+          <p className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white">{metric.value}</p>
+          <div className="flex items-center mt-1">
+            {metric.trend === 'up' ? (
+              <TrendingUp className="w-3 h-3 text-green-600 mr-1" />
+            ) : (
+              <TrendingDown className="w-3 h-3 text-green-600 mr-1" />
+            )}
+            <span className="text-xs text-green-600">{metric.change}</span>
+          </div>
+        </div>
+        <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-700">
+          <metric.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${metric.color}`} />
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+))
+
+const ProjectProgress = memo(({ project, index }: { project: any, index: number }) => (
+  <div className="space-y-2">
+    <div className="flex items-center justify-between">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${project.color}`} />
+        <span className="font-medium text-slate-900 dark:text-white text-sm sm:text-base truncate">{project.name}</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <Badge variant="secondary" className="text-xs">
+          {project.status}
+        </Badge>
+        <span className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
+          {project.progress}%
+        </span>
+      </div>
+    </div>
+    <Progress value={project.progress} className="h-1.5 sm:h-2" />
+  </div>
+))
+
+const ActivityItem = memo(({ activity, index }: { activity: any, index: number }) => (
+  <div className="flex items-start gap-2 sm:gap-3">
+    <div className="p-1 rounded-full bg-slate-100 dark:bg-slate-700 flex-shrink-0">
+      <activity.icon className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${activity.color}`} />
+    </div>
+    <div className="flex-1 min-w-0">
+      <p className="text-xs sm:text-sm font-medium text-slate-900 dark:text-white truncate">
+        {activity.action}
+      </p>
+      <p className="text-xs text-slate-600 dark:text-slate-400 truncate">{activity.project}</p>
+      <p className="text-xs text-slate-500 dark:text-slate-500">{activity.time}</p>
+    </div>
+  </div>
+))
+
 export function DataDashboard() {
-  const [currentTime, setCurrentTime] = React.useState<Date | null>(null)
-
-  React.useEffect(() => {
-    // Set initial time after component mounts on client
-    setCurrentTime(new Date())
-    
-    const timer = setInterval(() => {
-      setCurrentTime(new Date())
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [])
-
   const metrics = [
     {
       title: "Active Projects",
@@ -89,119 +135,72 @@ export function DataDashboard() {
   ]
 
   return (
-    <div className="w-full bg-white/30 dark:bg-slate-800/30 backdrop-blur-lg p-6 rounded-2xl border">
+    <div className="w-full bg-white/30 dark:bg-slate-800/30 backdrop-blur-lg p-3 sm:p-6 rounded-2xl border">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Annotation Dashboard</h2>
-          <p className="text-slate-600 dark:text-slate-400">Real-time project monitoring & analytics</p>
+          <h2 className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white">Annotation Dashboard</h2>
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">Real-time project monitoring & analytics</p>
         </div>
       </div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-6">
         {metrics.map((metric, index) => (
-          <Card key={index} className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">{metric.title}</p>
-                  <p className="text-2xl font-bold text-slate-900 dark:text-white">{metric.value}</p>
-                  <div className="flex items-center mt-1">
-                    {metric.trend === 'up' ? (
-                      <TrendingUp className="w-3 h-3 text-green-600 mr-1" />
-                    ) : (
-                      <TrendingDown className="w-3 h-3 text-green-600 mr-1" />
-                    )}
-                    <span className="text-xs text-green-600">{metric.change}</span>
-                  </div>
-                </div>
-                <div className={`p-2 rounded-lg bg-slate-100 dark:bg-slate-700`}>
-                  <metric.icon className={`w-5 h-5 ${metric.color}`} />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <MetricCard key={index} metric={metric} index={index} />
         ))}
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Active Projects */}
         <Card className="lg:col-span-2 border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Database className="w-5 h-5 text-blue-600" />
+          <CardHeader className="pb-3 sm:pb-4">
+            <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
+              <Database className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
               Active Projects
             </CardTitle>
-            <CardDescription>Current annotation projects and their progress</CardDescription>
+            <CardDescription className="text-xs sm:text-sm">Current annotation projects and their progress</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-3 sm:space-y-4">
             {projectData.map((project, index) => (
-              <div key={index} className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-3 h-3 rounded-full ${project.color}`} />
-                    <span className="font-medium text-slate-900 dark:text-white">{project.name}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Badge variant="secondary" className="text-xs">
-                      {project.status}
-                    </Badge>
-                    <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                      {project.progress}%
-                    </span>
-                  </div>
-                </div>
-                <Progress value={project.progress} className="h-2" />
-              </div>
+              <ProjectProgress key={index} project={project} index={index} />
             ))}
           </CardContent>
         </Card>
 
         {/* Recent Activity & Global Distribution */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Recent Activity */}
           <Card className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Activity className="w-5 h-5 text-green-600" />
+            <CardHeader className="pb-3 sm:pb-4">
+              <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
+                <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
                 Recent Activity
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-3">
+            <CardContent className="space-y-2 sm:space-y-3">
               {recentActivity.map((activity, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <div className="p-1 rounded-full bg-slate-100 dark:bg-slate-700">
-                    <activity.icon className={`w-3 h-3 ${activity.color}`} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-slate-900 dark:text-white truncate">
-                      {activity.action}
-                    </p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">{activity.project}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-500">{activity.time}</p>
-                  </div>
-                </div>
+                <ActivityItem key={index} activity={activity} index={index} />
               ))}
             </CardContent>
           </Card>
 
           {/* Global Distribution */}
           <Card className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Globe className="w-5 h-5 text-purple-600" />
+            <CardHeader className="pb-3 sm:pb-4">
+              <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
+                <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
                 Global Projects
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-3">
+            <CardContent className="space-y-2 sm:space-y-3">
               {globalStats.map((stat, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${stat.color}`} />
-                    <span className="text-sm text-slate-600 dark:text-slate-400">{stat.region}</span>
+                    <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${stat.color}`} />
+                    <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">{stat.region}</span>
                   </div>
-                  <span className="text-sm font-medium text-slate-900 dark:text-white">
+                  <span className="text-xs sm:text-sm font-medium text-slate-900 dark:text-white">
                     {stat.projects}
                   </span>
                 </div>
@@ -213,3 +212,5 @@ export function DataDashboard() {
     </div>
   )
 }
+
+export default DataDashboard
