@@ -1,10 +1,16 @@
+import dynamic from 'next/dynamic'
 import { HeroHeader } from '@/components/header'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { IndustriesBentoGrid } from '@/components/industries-bento-grid'
 import { Card } from '@/components/ui/card'
 import { IconUsers, IconGlobe, IconArrowRight } from '@tabler/icons-react'
+
+// Dynamic import for client-side component
+const IndustriesBentoGrid = dynamic(() => import('@/components/industries-bento-grid').then(mod => ({ default: mod.IndustriesBentoGrid })), {
+  ssr: false,
+  loading: () => <div className="h-96 bg-muted/50 rounded-lg animate-pulse" />
+})
 
 export default function Industries() {
   return (
@@ -73,7 +79,7 @@ export default function Industries() {
                   Ready to Transform Your Industry?
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Join industry leaders who trust Maximo Solutions for their AI data needs. Let's discuss your specific requirements and create a custom solution.
+                  Join industry leaders who trust Maximo Solutions for their AI data needs. Let&apos;s discuss your specific requirements and create a custom solution.
                 </p>
               </div>
               
