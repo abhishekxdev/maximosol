@@ -74,7 +74,9 @@ export const HeroHeader = memo(() => {
     return (
         <nav className={cn(
             'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-            isScrolled ? 'bg-white shadow-md py-2 sm:py-3' : 'bg-transparent py-3 sm:py-5'
+            isScrolled 
+                ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/20 py-2 sm:py-3' 
+                : 'bg-white/80 backdrop-blur-sm py-3 sm:py-5'
         )}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between">
