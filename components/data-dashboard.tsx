@@ -19,11 +19,11 @@ import {
 // Memoized components for better performance
 const MetricCard = memo(({ metric, index }: { metric: any, index: number }) => (
   <Card className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-    <CardContent className="p-3 sm:p-4 md:p-6">
+    <CardContent className="p-2 sm:p-3 md:p-4">
       <div className="flex items-center justify-between">
         <div className="min-w-0 flex-1">
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 truncate">{metric.title}</p>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-slate-900 dark:text-white">{metric.value}</p>
+          <p className="text-xs text-slate-600 dark:text-slate-400 truncate">{metric.title}</p>
+          <p className="text-sm sm:text-base md:text-lg font-bold text-slate-900 dark:text-white">{metric.value}</p>
           <div className="flex items-center mt-1">
             {metric.trend === 'up' ? (
               <TrendingUp className="w-3 h-3 text-green-600 mr-1 flex-shrink-0" />
@@ -33,7 +33,7 @@ const MetricCard = memo(({ metric, index }: { metric: any, index: number }) => (
             <span className="text-xs text-green-600">{metric.change}</span>
           </div>
         </div>
-        <metric.icon className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${metric.color} flex-shrink-0`} />
+        <metric.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${metric.color} flex-shrink-0`} />
       </div>
     </CardContent>
   </Card>
@@ -46,29 +46,29 @@ const ProjectProgress = memo(({ project, index }: { project: any, index: number 
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between gap-2">
-        <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-          <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${project.color} flex-shrink-0`} />
-          <span className="font-medium text-slate-900 dark:text-white text-xs sm:text-sm md:text-base truncate">{project.name}</span>
+        <div className="flex items-center gap-2 min-w-0 flex-1">
+          <div className={`w-2 h-2 rounded-full ${project.color} flex-shrink-0`} />
+          <span className="font-medium text-slate-900 dark:text-white text-xs sm:text-sm truncate">{project.name}</span>
         </div>
-        <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-          <Badge variant="secondary" className="text-xs px-1 sm:px-2 hidden sm:inline-flex">
+        <div className="flex items-center gap-1 flex-shrink-0">
+          <Badge variant="secondary" className="text-xs px-1 hidden sm:inline-flex">
             {project.status}
           </Badge>
-          <span className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
+          <span className="text-xs font-medium text-slate-600 dark:text-slate-400">
             {progressValue}%
           </span>
         </div>
       </div>
-      <Progress value={progressValue} max={100} className="h-1.5 sm:h-2" />
+      <Progress value={progressValue} max={100} className="h-1.5" />
     </div>
   )
 })
 
 const ActivityItem = memo(({ activity, index }: { activity: any, index: number }) => (
-  <div className="flex items-start gap-2 sm:gap-3">
-    <activity.icon className={`w-3 h-3 sm:w-4 sm:h-4 ${activity.color} flex-shrink-0 mt-0.5`} />
+  <div className="flex items-start gap-2">
+    <activity.icon className={`w-3 h-3 ${activity.color} flex-shrink-0 mt-0.5`} />
     <div className="flex-1 min-w-0">
-      <p className="text-xs sm:text-sm font-medium text-slate-900 dark:text-white truncate">
+      <p className="text-xs font-medium text-slate-900 dark:text-white truncate">
         {activity.action}
       </p>
       <p className="text-xs text-slate-600 dark:text-slate-400 truncate">{activity.project}</p>
@@ -80,7 +80,7 @@ const ActivityItem = memo(({ activity, index }: { activity: any, index: number }
 export function DataDashboard() {
   const metrics = [
     {
-      title: "Active Projects",
+      title: "Projects",
       value: "47",
       change: "+12%",
       trend: "up",
@@ -116,7 +116,7 @@ export function DataDashboard() {
   const projectData = [
     { name: "Healthcare AI", progress: 85, status: "On Track", color: "bg-blue-500" },
     { name: "Auto Vehicles", progress: 92, status: "Ahead", color: "bg-green-500" },
-    { name: "Financial Analytics", progress: 67, status: "In Progress", color: "bg-yellow-500" },
+    { name: "Financial Analytics", progress: 67, status: "Progress", color: "bg-yellow-500" },
     { name: "Retail Intelligence", progress: 78, status: "On Track", color: "bg-purple-500" },
     { name: "Security Systems", progress: 94, status: "Complete", color: "bg-emerald-500" }
   ]
@@ -136,33 +136,33 @@ export function DataDashboard() {
   ]
 
   return (
-    <div className="w-full bg-white/30 dark:bg-slate-800/30 backdrop-blur-lg p-3 sm:p-4 md:p-6 rounded-2xl border">
+    <div className="w-full bg-white/30 dark:bg-slate-800/30 backdrop-blur-lg p-2 sm:p-3 md:p-4 lg:p-6 rounded-xl sm:rounded-2xl border">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4 sm:mb-6">
+      <div className="flex items-center justify-between mb-3 sm:mb-4 md:mb-6">
         <div>
-          <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-slate-900 dark:text-white">Annotation Dashboard</h2>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Real-time project monitoring & analytics</p>
+          <h2 className="text-sm sm:text-base md:text-lg font-bold text-slate-900 dark:text-white">Annotation Dashboard</h2>
+          <p className="text-xs text-slate-600 dark:text-slate-400">Real-time project monitoring</p>
         </div>
       </div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 mb-3 sm:mb-4 md:mb-6">
         {metrics.map((metric, index) => (
           <MetricCard key={index} metric={metric} index={index} />
         ))}
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
         {/* Active Projects */}
         <Card className="lg:col-span-2 border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-          <CardHeader className="pb-3 sm:pb-4">
-            <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
-              <Database className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0" />
+          <CardHeader className="pb-2 sm:pb-3">
+            <CardTitle className="flex items-center gap-2 text-sm">
+              <Database className="w-4 h-4 text-blue-600 flex-shrink-0" />
               <span className="truncate">Active Projects</span>
             </CardTitle>
-            <CardDescription className="text-xs sm:text-sm">Current annotation projects and their progress</CardDescription>
+            <CardDescription className="text-xs">Current annotation projects</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-3 sm:space-y-4">
+          <CardContent className="space-y-2 sm:space-y-3">
             {projectData.map((project, index) => (
               <ProjectProgress key={index} project={project} index={index} />
             ))}
@@ -170,16 +170,16 @@ export function DataDashboard() {
         </Card>
 
         {/* Recent Activity & Global Distribution */}
-        <div className="space-y-4 sm:space-y-6">
+        <div className="space-y-3 sm:space-y-4">
           {/* Recent Activity */}
           <Card className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-            <CardHeader className="pb-3 sm:pb-4">
-              <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
-                <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 flex-shrink-0" />
+            <CardHeader className="pb-2 sm:pb-3">
+              <CardTitle className="flex items-center gap-2 text-sm">
+                <Activity className="w-4 h-4 text-green-600 flex-shrink-0" />
                 <span className="truncate">Recent Activity</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 sm:space-y-3">
+            <CardContent className="space-y-2">
               {recentActivity.map((activity, index) => (
                 <ActivityItem key={index} activity={activity} index={index} />
               ))}
@@ -188,20 +188,20 @@ export function DataDashboard() {
 
           {/* Global Distribution */}
           <Card className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-            <CardHeader className="pb-3 sm:pb-4">
-              <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
-                <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 flex-shrink-0" />
+            <CardHeader className="pb-2 sm:pb-3">
+              <CardTitle className="flex items-center gap-2 text-sm">
+                <Globe className="w-4 h-4 text-purple-600 flex-shrink-0" />
                 <span className="truncate">Global Projects</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 sm:space-y-3">
+            <CardContent className="space-y-2">
               {globalStats.map((stat, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${stat.color} flex-shrink-0`} />
-                    <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 truncate">{stat.region}</span>
+                    <div className={`w-1.5 h-1.5 rounded-full ${stat.color} flex-shrink-0`} />
+                    <span className="text-xs text-slate-600 dark:text-slate-400 truncate">{stat.region}</span>
                   </div>
-                  <span className="text-xs sm:text-sm font-medium text-slate-900 dark:text-white flex-shrink-0">
+                  <span className="text-xs font-medium text-slate-900 dark:text-white flex-shrink-0">
                     {stat.projects}
                   </span>
                 </div>
