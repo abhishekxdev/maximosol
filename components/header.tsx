@@ -117,21 +117,24 @@ export const HeroHeader = memo(() => {
             
             {/* Mobile Menu Overlay */}
             {menuState && (
-                <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40" onClick={closeMenu} />
+                <div 
+                    className="lg:hidden fixed inset-0 bg-black/50 z-40" 
+                    onClick={closeMenu} 
+                />
             )}
             
             {/* Mobile Menu */}
             <div className={cn(
-                "lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-40",
+                "lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50",
                 menuState ? "translate-x-0" : "translate-x-full"
             )}>
-                <div className="flex flex-col h-full">
+                <div className="flex flex-col h-full bg-white">
                     {/* Menu Header */}
-                    <div className="flex items-center justify-between p-6 border-b">
+                    <div className="flex items-center justify-between p-6 border-b bg-white">
                         <Logo />
                         <button 
                             onClick={closeMenu}
-                            className="text-gray-500 hover:text-gray-800 p-2"
+                            className="text-gray-500 hover:text-gray-800 p-2 transition-colors duration-300"
                             aria-label="Close menu"
                         >
                             <X size={24} />
@@ -139,10 +142,10 @@ export const HeroHeader = memo(() => {
                     </div>
                     
                     {/* Menu Items */}
-                    <div className="flex-1 py-6">
+                    <div className="flex-1 py-6 bg-white">
                         <div className="space-y-1">
                             {menuItems.map((item, index) => (
-                                <div key={index}>
+                                <div key={index} className="px-3">
                                     <MenuItem 
                                         item={item} 
                                         isActive={pathname === item.href} 
@@ -154,7 +157,7 @@ export const HeroHeader = memo(() => {
                     </div>
                     
                     {/* Menu Footer */}
-                    <div className="p-6 border-t">
+                    <div className="p-6 border-t bg-white">
                         <Button 
                             onClick={closeMenu}
                             className="w-full px-4 py-3 rounded-full bg-gray-900 text-white font-medium flex items-center justify-center text-sm transition-colors duration-300 hover:bg-purple-900"
