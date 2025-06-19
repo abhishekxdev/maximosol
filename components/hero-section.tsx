@@ -9,6 +9,13 @@ import Image from 'next/image'
 // Lazy load heavy components
 const DataDashboard = lazy(() => import('@/components/data-dashboard').then(module => ({ default: module.DataDashboard })))
 
+// Helper component for gradient text
+const GradientText = ({ children }: { children: React.ReactNode }) => (
+    <span className="bg-gradient-to-r from-purple-900 to-indigo-600 bg-clip-text text-transparent">
+        {children}
+    </span>
+)
+
 export default function HeroSection() {
     return (
         <>
@@ -28,7 +35,9 @@ export default function HeroSection() {
                             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                                 <div className="text-left order-2 lg:order-1">
                                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal mb-4 sm:mb-6 font-sans tracking-tight leading-tight">
-                                        <span className="block">Shaping the <span className="bg-gradient-to-r from-purple-900 to-indigo-600 bg-clip-text text-transparent">Future</span> of AI with <span className="bg-gradient-to-r from-purple-900 to-indigo-600 bg-clip-text text-transparent">Accurate</span> <span className="bg-gradient-to-r from-purple-900 to-indigo-600 bg-clip-text text-transparent">Data</span></span>
+                                        <span className="block">
+                                            Shaping the <GradientText>Future</GradientText> of AI with <GradientText>Accurate</GradientText> <GradientText>Data</GradientText>
+                                        </span>
                                     </h1>
                                     
                                     <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-8 sm:mb-12 max-w-2xl leading-relaxed">
