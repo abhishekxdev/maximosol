@@ -135,8 +135,8 @@ const Card = memo(({ card, index, layout = false }: {
               <BlurImage
                 src={card.image}
                 alt={card.title}
-                height="500"
-                width="1000"
+                width={1000}
+                height={500}
                 className="md:w-1/2 md:h-1/2 h-40 w-full mx-auto object-cover"
                 draggable={false}
               />
@@ -264,16 +264,26 @@ export const BlurImage = memo(({
   src,
   className,
   alt,
+  fill,
   ...rest
 }: {
-  height?: string;
-  width?: string;
+  height?: number;
+  width?: number;
   src: string;
   className?: string;
   alt?: string;
+  fill?: boolean;
   [key: string]: any;
 }) => {
   const [isLoading, setLoading] = useState(true);
+  
+  const imageProps = fill 
+    ? { fill: true }
+    : { 
+        width: width || 1000, 
+        height: height || 1000 
+      };
+
   return (
     <Image
       className={cn(
@@ -283,12 +293,11 @@ export const BlurImage = memo(({
       )}
       onLoad={() => setLoading(false)}
       src={src}
-      width={width ? parseInt(width) : 1000}
-      height={height ? parseInt(height) : 1000}
       loading="lazy"
       decoding="async"
       blurDataURL={typeof src === "string" ? src : undefined}
       alt={alt ?? "Background of a beautiful view"}
+      {...imageProps}
       {...rest}
     />
   );
