@@ -96,12 +96,6 @@
     font-family: 'Inter', sans-serif;
     font-display: swap;
   }
-  
-  /* Optimize font loading */
-  @font-face {
-    font-family: 'Inter';
-    font-display: swap;
-  }
 }
 
 @layer utilities {

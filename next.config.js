@@ -18,8 +18,12 @@ const nextConfig = {
   swcMinify: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  // Disable font optimization to prevent AbortError during build
+  // Disable font optimization to prevent build errors
   optimizeFonts: false,
+  // Disable static optimization for problematic pages
+  trailingSlash: true,
+  // Ensure proper static export
+  distDir: 'out',
 };
 
 module.exports = nextConfig;
