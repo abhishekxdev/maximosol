@@ -29,59 +29,64 @@ export default function HeroSection() {
                     <div className="w-64 h-64 absolute right-0 top-1/4 rotate-45 rounded-full bg-gradient-to-r from-purple-500/10 to-indigo-500/10 blur-3xl" />
                 </div>
                 
-                <section className="pt-24 pb-8 sm:pt-32 sm:pb-12 md:pt-40 md:pb-16 lg:pt-48 lg:pb-20">
-                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="max-w-7xl mx-auto">
-                            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                                <div className="text-center lg:text-left order-2 lg:order-1">
-                                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal mb-4 sm:mb-6 font-sans tracking-tight leading-tight">
-                                        <span className="block">
-                                            Shaping the <GradientText>Future</GradientText> of AI with <GradientText>Accurate</GradientText> <GradientText>Data</GradientText>
-                                        </span>
-                                    </h1>
-                                    
-                                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-4 sm:px-0">
-                                        Maximo Global Solutions provides high-quality data labeling and annotation services to transform your AI and machine learning projects with precision and reliability.
-                                    </p>
+                <section className="pt-20 pb-8 sm:pt-24 sm:pb-12 md:pt-32 md:pb-16 lg:pt-40 lg:pb-20 px-4 sm:px-6">
+                    <div className="container mx-auto max-w-7xl">
+                        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                            {/* Text Content - Mobile First */}
+                            <div className="text-center lg:text-left order-2 lg:order-1 space-y-6 sm:space-y-8">
+                                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight">
+                                    <span className="block mb-2 sm:mb-4">
+                                        Shaping the <GradientText>Future</GradientText> of AI
+                                    </span>
+                                    <span className="block">
+                                        with <GradientText>Accurate Data</GradientText>
+                                    </span>
+                                </h1>
+                                
+                                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                                    Maximo Global Solutions provides high-quality data labeling and annotation services to transform your AI and machine learning projects with precision and reliability.
+                                </p>
 
-                                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 px-4 sm:px-0">
-                                        <Link href="/services" className="w-full sm:w-auto">
-                                            <Button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-gray-900 to-purple-900 text-white font-medium flex items-center justify-center group hover:from-purple-900 hover:to-gray-900 transition-all shadow-lg text-sm sm:text-base">
-                                                Explore Services
-                                                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
-                                            </Button>
-                                        </Link>
-                                        
-                                        <Link href="/contact" className="w-full sm:w-auto">
-                                            <Button variant="ghost" className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white/80 backdrop-blur-sm font-medium flex items-center justify-center hover:bg-white/90 transition-colors shadow-lg text-sm sm:text-base">
-                                                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-purple-900" /> 
-                                                <span className="bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent">Request a Quote</span>
-                                            </Button>
-                                        </Link>
-                                    </div>
+                                {/* CTA Buttons - Mobile Optimized */}
+                                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full">
+                                    <Link href="/services" className="w-full sm:w-auto">
+                                        <Button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-gray-900 to-purple-900 text-white font-medium flex items-center justify-center group hover:from-purple-900 hover:to-gray-900 transition-all shadow-lg text-sm sm:text-base min-h-[48px]">
+                                            Explore Services
+                                            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+                                        </Button>
+                                    </Link>
+                                    
+                                    <Link href="/contact" className="w-full sm:w-auto">
+                                        <Button variant="ghost" className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white/80 backdrop-blur-sm font-medium flex items-center justify-center hover:bg-white/90 transition-colors shadow-lg text-sm sm:text-base min-h-[48px]">
+                                            <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-purple-900" /> 
+                                            <span className="bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent">Request a Quote</span>
+                                        </Button>
+                                    </Link>
                                 </div>
-                                <div className="relative order-1 lg:order-2">
-                                    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
-                                        <Image
-                                            src="/robot3.png"
-                                            alt="AI Robot"
-                                            width={600}
-                                            height={600}
-                                            className="w-full h-auto object-contain"
-                                            priority
-                                            sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, (max-width: 1024px) 448px, (max-width: 1280px) 512px, 576px"
-                                        />
-                                    </div>
+                            </div>
+
+                            {/* Robot Image - Mobile Optimized */}
+                            <div className="relative order-1 lg:order-2 flex justify-center">
+                                <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] mx-auto">
+                                    <Image
+                                        src="/robot3.png"
+                                        alt="AI Robot"
+                                        width={600}
+                                        height={600}
+                                        className="w-full h-auto object-contain"
+                                        priority
+                                        sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, (max-width: 1024px) 400px, (max-width: 1280px) 500px, 600px"
+                                    />
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Lazy load dashboard with loading state */}
-                    <div className="relative mt-8 sm:mt-12 md:mt-16 lg:mt-20 px-2 sm:px-4">
+                    {/* Dashboard Section - Mobile Responsive */}
+                    <div className="relative mt-12 sm:mt-16 md:mt-20 lg:mt-24 px-2 sm:px-4">
                         <div className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl p-2 sm:p-4">
                             <Suspense fallback={
-                                <div className="w-full h-64 sm:h-80 md:h-96 bg-white/30 backdrop-blur-lg rounded-2xl border flex items-center justify-center">
+                                <div className="w-full h-48 sm:h-64 md:h-80 lg:h-96 bg-white/30 backdrop-blur-lg rounded-2xl border flex items-center justify-center">
                                     <div className="animate-spin rounded-full h-8 w-8 sm:h-12 sm:w-12 border-b-2 border-primary"></div>
                                 </div>
                             }>
@@ -91,18 +96,19 @@ export default function HeroSection() {
                     </div>
                 </section>
                 
-                {/* Simplified scrolling section */}
-                <section className="bg-white/60 backdrop-blur-sm pb-8 pt-8 sm:pb-12 sm:pt-12 md:pb-16 md:pt-16">
-                    <div className="relative m-auto max-w-5xl px-4 sm:px-6">
-                        <div className="mx-auto mt-4 sm:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-8 transition-all duration-500">
+                {/* Industry Cards Section - Mobile Responsive */}
+                <section className="bg-white/60 backdrop-blur-sm py-8 sm:py-12 md:py-16 px-4 sm:px-6">
+                    <div className="relative mx-auto max-w-5xl">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 transition-all duration-500">
                             {[
-                                { name: "Healthcare", desc: "Medical AI" },
-                                { name: "Automotive", desc: "Autonomous Vehicles" },
-                                { name: "Finance", desc: "FinTech Solutions" },
-                                { name: "Retail", desc: "E-commerce AI" }
+                                { name: "Healthcare", desc: "Medical AI", icon: "🏥" },
+                                { name: "Automotive", desc: "Autonomous Vehicles", icon: "🚗" },
+                                { name: "Finance", desc: "FinTech Solutions", icon: "💰" },
+                                { name: "Retail", desc: "E-commerce AI", icon: "🛒" }
                             ].map((item, index) => (
-                                <div key={index} className="text-center p-3 sm:p-4 bg-white/40 rounded-lg backdrop-blur-sm">
-                                    <div className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-primary mb-1">{item.name}</div>
+                                <div key={index} className="text-center p-4 sm:p-6 bg-white/40 rounded-lg backdrop-blur-sm hover:bg-white/60 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md">
+                                    <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">{item.icon}</div>
+                                    <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-primary mb-1 sm:mb-2">{item.name}</div>
                                     <div className="text-xs sm:text-sm text-muted-foreground">{item.desc}</div>
                                 </div>
                             ))}

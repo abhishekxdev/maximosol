@@ -23,7 +23,7 @@ const MetricCard = memo(({ metric, index }: { metric: any, index: number }) => (
       <div className="flex items-center justify-between">
         <div className="min-w-0 flex-1">
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 truncate">{metric.title}</p>
-          <p className="text-base sm:text-lg md:text-2xl font-bold text-slate-900 dark:text-white">{metric.value}</p>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-slate-900 dark:text-white">{metric.value}</p>
           <div className="flex items-center mt-1">
             {metric.trend === 'up' ? (
               <TrendingUp className="w-3 h-3 text-green-600 mr-1 flex-shrink-0" />
@@ -51,7 +51,7 @@ const ProjectProgress = memo(({ project, index }: { project: any, index: number 
           <span className="font-medium text-slate-900 dark:text-white text-xs sm:text-sm md:text-base truncate">{project.name}</span>
         </div>
         <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-          <Badge variant="secondary" className="text-xs px-1 sm:px-2">
+          <Badge variant="secondary" className="text-xs px-1 sm:px-2 hidden sm:inline-flex">
             {project.status}
           </Badge>
           <span className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
@@ -88,7 +88,7 @@ export function DataDashboard() {
       color: "text-blue-600"
     },
     {
-      title: "Data Points Annotated",
+      title: "Data Points",
       value: "2.4M",
       change: "+8.2%",
       trend: "up",
@@ -96,7 +96,7 @@ export function DataDashboard() {
       color: "text-green-600"
     },
     {
-      title: "Accuracy Rate",
+      title: "Accuracy",
       value: "99.9%",
       change: "+0.1%",
       trend: "up",
@@ -104,7 +104,7 @@ export function DataDashboard() {
       color: "text-emerald-600"
     },
     {
-      title: "Avg. Turnaround",
+      title: "Turnaround",
       value: "18hrs",
       change: "-15%",
       trend: "down",
@@ -115,10 +115,10 @@ export function DataDashboard() {
 
   const projectData = [
     { name: "Healthcare AI", progress: 85, status: "On Track", color: "bg-blue-500" },
-    { name: "Autonomous Vehicles", progress: 92, status: "Ahead", color: "bg-green-500" },
+    { name: "Auto Vehicles", progress: 92, status: "Ahead", color: "bg-green-500" },
     { name: "Financial Analytics", progress: 67, status: "In Progress", color: "bg-yellow-500" },
     { name: "Retail Intelligence", progress: 78, status: "On Track", color: "bg-purple-500" },
-    { name: "Security Systems", progress: 94, status: "Near Complete", color: "bg-emerald-500" }
+    { name: "Security Systems", progress: 94, status: "Complete", color: "bg-emerald-500" }
   ]
 
   const recentActivity = [
@@ -140,8 +140,8 @@ export function DataDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between mb-4 sm:mb-6">
         <div>
-          <h2 className="text-base sm:text-lg md:text-2xl font-bold text-slate-900 dark:text-white">Annotation Dashboard</h2>
-          <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-400">Real-time project monitoring & analytics</p>
+          <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-slate-900 dark:text-white">Annotation Dashboard</h2>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Real-time project monitoring & analytics</p>
         </div>
       </div>
 
