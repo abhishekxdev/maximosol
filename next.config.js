@@ -18,6 +18,8 @@ const nextConfig = {
   swcMinify: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  // Disable font optimization to prevent AbortError during build
+  optimizeFonts: false,
 };
 
 module.exports = nextConfig;
