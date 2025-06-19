@@ -39,25 +39,31 @@ const MetricCard = memo(({ metric, index }: { metric: any, index: number }) => (
   </Card>
 ))
 
-const ProjectProgress = memo(({ project, index }: { project: any, index: number }) => (
-  <div className="space-y-2">
-    <div className="flex items-center justify-between">
-      <div className="flex items-center gap-2 sm:gap-3">
-        <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${project.color}`} />
-        <span className="font-medium text-slate-900 dark:text-white text-sm sm:text-base truncate">{project.name}</span>
+const ProjectProgress = memo(({ project, index }: { project: any, index: number }) => {
+  // Ensure progress is a valid number between 0 and 100
+  const progressValue = Math.min(Math.max(Number(project.progress) || 0, 0), 100);
+  
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${project.color}`} />
+          <span className="font-medium text-slate-900 dark:text-white text-sm sm:text-base truncate">{project.name}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <Badge variant="secondary" className="text-xs">
+            {project.status}
+          </Badge>
+          <span className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
+            {progressValue}%
+          </span>
+        </div>
       </div>
-      <div className="flex items-center gap-2">
-        <Badge variant="secondary" className="text-xs">
-          {project.status}
-        </Badge>
-        <span className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
-          {project.progress}%
-        </span>
-      </div>
+      <Progress value={progressValue} max={100} className="h-1.5 sm:h-2" />
     </div>
-    <Progress value={project.progress} className="h-1.5 sm:h-2" />
-  </div>
-))
+  )
+})
+
 
 const ActivityItem = memo(({ activity, index }: { activity: any, index: number }) => (
   <div className="flex items-start gap-2 sm:gap-3">
