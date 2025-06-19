@@ -1,6 +1,22 @@
+import dynamic from 'next/dynamic'
 import { HeroHeader } from '@/components/header'
 import { Badge } from '@/components/ui/badge'
-import { AboutHeroBento, AboutStatsBento, AboutValuesBento } from '@/components/about-bento-sections'
+
+// Dynamic imports with SSR disabled for components that use client-side features
+const AboutHeroBento = dynamic(() => import('@/components/about-bento-sections').then(mod => ({ default: mod.AboutHeroBento })), {
+  ssr: false,
+  loading: () => <div className="h-96 bg-muted/50 rounded-lg animate-pulse" />
+})
+
+const AboutStatsBento = dynamic(() => import('@/components/about-bento-sections').then(mod => ({ default: mod.AboutStatsBento })), {
+  ssr: false,
+  loading: () => <div className="h-96 bg-muted/50 rounded-lg animate-pulse" />
+})
+
+const AboutValuesBento = dynamic(() => import('@/components/about-bento-sections').then(mod => ({ default: mod.AboutValuesBento })), {
+  ssr: false,
+  loading: () => <div className="h-96 bg-muted/50 rounded-lg animate-pulse" />
+})
 
 export default function About() {
   return (
