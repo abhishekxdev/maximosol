@@ -80,18 +80,14 @@ export default function Industries() {
               <div className="grid md:grid-cols-2 gap-6 mb-10">
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <IconUsers className="h-5 w-5 text-primary" />
-                    </div>
+                    <IconUsers className="h-5 w-5 text-primary" />
                     <h3 className="font-semibold text-lg text-gray-800">Industry Expertise</h3>
                   </div>
                   <p className="text-sm text-gray-600">Specialized knowledge across diverse sectors</p>
                 </div>
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <IconGlobe className="h-5 w-5 text-primary" />
-                    </div>
+                    <IconGlobe className="h-5 w-5 text-primary" />
                     <h3 className="font-semibold text-lg text-gray-800">Global Reach</h3>
                   </div>
                   <p className="text-sm text-gray-600">Serving clients across 50+ countries</p>

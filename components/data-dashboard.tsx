@@ -33,9 +33,7 @@ const MetricCard = memo(({ metric, index }: { metric: any, index: number }) => (
             <span className="text-xs text-green-600">{metric.change}</span>
           </div>
         </div>
-        <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-700">
-          <metric.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${metric.color}`} />
-        </div>
+        <metric.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${metric.color}`} />
       </div>
     </CardContent>
   </Card>
@@ -63,9 +61,7 @@ const ProjectProgress = memo(({ project, index }: { project: any, index: number 
 
 const ActivityItem = memo(({ activity, index }: { activity: any, index: number }) => (
   <div className="flex items-start gap-2 sm:gap-3">
-    <div className="p-1 rounded-full bg-slate-100 dark:bg-slate-700 flex-shrink-0">
-      <activity.icon className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${activity.color}`} />
-    </div>
+    <activity.icon className={`w-3 h-3 sm:w-4 sm:h-4 ${activity.color} flex-shrink-0 mt-0.5`} />
     <div className="flex-1 min-w-0">
       <p className="text-xs sm:text-sm font-medium text-slate-900 dark:text-white truncate">
         {activity.action}

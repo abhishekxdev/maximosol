@@ -173,9 +173,7 @@ export default function WhyChooseUs() {
                       className="w-full h-80 object-cover rounded-xl shadow-lg"
                     />
                     <div className="absolute top-4 left-4">
-                      <div className="p-4 bg-primary text-primary-foreground rounded-xl shadow-lg">
-                        <advantage.icon className="h-8 w-8" />
-                      </div>
+                      <advantage.icon className="h-8 w-8 text-primary" />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
                   </div>
@@ -244,9 +242,7 @@ export default function WhyChooseUs() {
               }
             ].map((stat, index) => (
               <Card key={index} className="text-center p-8 border-0 bg-white/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                <div className="mx-auto mb-6 p-4 bg-primary/10 rounded-xl w-fit">
-                  <stat.icon className="h-10 w-10 text-primary" />
-                </div>
+                <stat.icon className="h-10 w-10 text-primary mx-auto mb-6" />
                 <div className="text-4xl font-bold text-primary mb-3">{stat.number}</div>
                 <div className="text-lg font-semibold mb-2 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">{stat.label}</div>
                 <div className="text-muted-foreground text-sm">{stat.description}</div>
@@ -334,18 +330,14 @@ export default function WhyChooseUs() {
               <div className="grid md:grid-cols-2 gap-6 mb-10">
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Award className="h-5 w-5 text-primary" />
-                    </div>
+                    <Award className="h-5 w-5 text-primary" />
                     <h3 className="font-semibold text-lg text-gray-800">Proven Excellence</h3>
                   </div>
                   <p className="text-sm text-gray-600">99.9% accuracy rate across all projects</p>
                 </div>
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Zap className="h-5 w-5 text-primary" />
-                    </div>
+                    <Zap className="h-5 w-5 text-primary" />
                     <h3 className="font-semibold text-lg text-gray-800">Fast Delivery</h3>
                   </div>
                   <p className="text-sm text-gray-600">48-hour average turnaround time</p>

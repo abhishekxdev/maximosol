@@ -115,9 +115,7 @@ export default function Services() {
                   </div>
                   <div className={`p-10 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
                     <div className="flex items-start gap-6 mb-8">
-                      <div className="p-4 bg-primary/10 rounded-xl flex-shrink-0">
-                        <service.icon className="h-10 w-10 text-primary" />
-                      </div>
+                      <service.icon className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
                       <div className="flex-1">
                         <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">{service.title}</h3>
                         <p className="text-lg text-muted-foreground leading-relaxed">{service.description}</p>
@@ -226,18 +224,14 @@ export default function Services() {
               <div className="grid md:grid-cols-2 gap-6 mb-10">
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-primary" />
-                    </div>
+                    <CheckCircle className="h-5 w-5 text-primary" />
                     <h3 className="font-semibold text-lg text-gray-800">Free Consultation</h3>
                   </div>
                   <p className="text-sm text-gray-600">Get expert advice on your annotation strategy</p>
                 </div>
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Clock className="h-5 w-5 text-primary" />
-                    </div>
+                    <Clock className="h-5 w-5 text-primary" />
                     <h3 className="font-semibold text-lg text-gray-800">Quick Turnaround</h3>
                   </div>
                   <p className="text-sm text-gray-600">Fast delivery with quality assurance</p>
