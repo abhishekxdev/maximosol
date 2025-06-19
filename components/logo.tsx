@@ -19,7 +19,7 @@ export const Logo = memo(() => {
         alt="Maximo Solutions Logo 2"
         width={120}
         height={80}
-        className="h-16 w-24 sm:h-20 sm:w-30 object-contain"
+        className="h-16 w-24 sm:h-20 sm:w-[120px] object-contain"
         priority
         sizes="(max-width: 768px) 96px, 120px"
       />
