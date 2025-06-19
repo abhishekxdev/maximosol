@@ -19,10 +19,10 @@ import {
 // Memoized components for better performance
 const MetricCard = memo(({ metric, index }: { metric: any, index: number }) => (
   <Card className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-    <CardContent className="p-2 sm:p-3 md:p-4">
+    <CardContent className="p-3 sm:p-4">
       <div className="flex items-center justify-between">
         <div className="min-w-0 flex-1">
-          <p className="text-xs text-slate-600 dark:text-slate-400 truncate">{metric.title}</p>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 truncate">{metric.title}</p>
           <p className="text-sm sm:text-base md:text-lg font-bold text-slate-900 dark:text-white">{metric.value}</p>
           <div className="flex items-center mt-1">
             {metric.trend === 'up' ? (
@@ -136,33 +136,33 @@ export function DataDashboard() {
   ]
 
   return (
-    <div className="w-full bg-white/30 dark:bg-slate-800/30 backdrop-blur-lg p-2 sm:p-3 md:p-4 lg:p-6 rounded-xl sm:rounded-2xl border">
+    <div className="w-full bg-white/30 dark:bg-slate-800/30 backdrop-blur-lg p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl border">
       {/* Header */}
-      <div className="flex items-center justify-between mb-3 sm:mb-4 md:mb-6">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
         <div>
-          <h2 className="text-sm sm:text-base md:text-lg font-bold text-slate-900 dark:text-white">Annotation Dashboard</h2>
-          <p className="text-xs text-slate-600 dark:text-slate-400">Real-time project monitoring</p>
+          <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-slate-900 dark:text-white">Annotation Dashboard</h2>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Real-time project monitoring</p>
         </div>
       </div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 mb-3 sm:mb-4 md:mb-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6">
         {metrics.map((metric, index) => (
           <MetricCard key={index} metric={metric} index={index} />
         ))}
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+      <div className="grid lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Active Projects */}
         <Card className="lg:col-span-2 border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-          <CardHeader className="pb-2 sm:pb-3">
-            <CardTitle className="flex items-center gap-2 text-sm">
-              <Database className="w-4 h-4 text-blue-600 flex-shrink-0" />
+          <CardHeader className="pb-3 sm:pb-4">
+            <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
+              <Database className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0" />
               <span className="truncate">Active Projects</span>
             </CardTitle>
-            <CardDescription className="text-xs">Current annotation projects</CardDescription>
+            <CardDescription className="text-xs sm:text-sm">Current annotation projects</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-2 sm:space-y-3">
+          <CardContent className="space-y-3 sm:space-y-4">
             {projectData.map((project, index) => (
               <ProjectProgress key={index} project={project} index={index} />
             ))}
@@ -170,16 +170,16 @@ export function DataDashboard() {
         </Card>
 
         {/* Recent Activity & Global Distribution */}
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-4 sm:space-y-6">
           {/* Recent Activity */}
           <Card className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-            <CardHeader className="pb-2 sm:pb-3">
-              <CardTitle className="flex items-center gap-2 text-sm">
-                <Activity className="w-4 h-4 text-green-600 flex-shrink-0" />
+            <CardHeader className="pb-3 sm:pb-4">
+              <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
+                <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 flex-shrink-0" />
                 <span className="truncate">Recent Activity</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2">
+            <CardContent className="space-y-2 sm:space-y-3">
               {recentActivity.map((activity, index) => (
                 <ActivityItem key={index} activity={activity} index={index} />
               ))}
@@ -188,20 +188,20 @@ export function DataDashboard() {
 
           {/* Global Distribution */}
           <Card className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm">
-            <CardHeader className="pb-2 sm:pb-3">
-              <CardTitle className="flex items-center gap-2 text-sm">
-                <Globe className="w-4 h-4 text-purple-600 flex-shrink-0" />
+            <CardHeader className="pb-3 sm:pb-4">
+              <CardTitle className="flex items-center gap-2 text-sm sm:text-base">
+                <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 flex-shrink-0" />
                 <span className="truncate">Global Projects</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2">
+            <CardContent className="space-y-2 sm:space-y-3">
               {globalStats.map((stat, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <div className="flex items-center gap-2 min-w-0 flex-1">
                     <div className={`w-1.5 h-1.5 rounded-full ${stat.color} flex-shrink-0`} />
-                    <span className="text-xs text-slate-600 dark:text-slate-400 truncate">{stat.region}</span>
+                    <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 truncate">{stat.region}</span>
                   </div>
-                  <span className="text-xs font-medium text-slate-900 dark:text-white flex-shrink-0">
+                  <span className="text-xs sm:text-sm font-medium text-slate-900 dark:text-white flex-shrink-0">
                     {stat.projects}
                   </span>
                 </div>

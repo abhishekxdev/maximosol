@@ -212,6 +212,7 @@ img {
 /* Prevent horizontal scroll on mobile */
 html, body {
   overflow-x: hidden;
+  width: 100%;
 }
 
 /* Ensure proper text scaling on mobile */
@@ -250,8 +251,28 @@ html, body {
 /* Better mobile spacing */
 @media (max-width: 640px) {
   .container {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Mobile-first container padding */
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
@@ -325,4 +346,32 @@ html, body {
 
 .gap-responsive-lg {
   @apply gap-4 sm:gap-6 md:gap-8;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 640px) {
+  /* Ensure no horizontal overflow */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Better mobile button sizing */
+  .btn-mobile {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+  
+  /* Mobile-friendly card spacing */
+  .card-mobile {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  /* Responsive image containers */
+  .img-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
 }
