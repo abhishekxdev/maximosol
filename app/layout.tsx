@@ -1,13 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { AuroraBackground } from '@/components/ui/aurora-background';
-
-const inter = Inter({ 
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-});
 
 export const metadata: Metadata = {
   title: 'Maximo Solutions - Data Annotation Services',
@@ -29,7 +22,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={inter.className}>
+      <body>
         <AuroraBackground className="min-h-screen">
           {children}
         </AuroraBackground>
