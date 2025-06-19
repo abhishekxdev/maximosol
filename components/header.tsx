@@ -22,14 +22,14 @@ const MenuItem = memo(({ item, isActive, onClick }: { item: any, isActive: boole
         href={item.href}
         onClick={onClick}
         className={cn(
-            'font-medium transition-all duration-300 text-sm sm:text-base relative pb-1',
+            'font-medium transition-all duration-300 text-sm lg:text-base relative pb-1 block px-3 py-2 md:px-0 md:py-0',
             isActive 
                 ? 'text-purple-900' 
                 : 'text-gray-600 hover:text-purple-900'
         )}>
         {item.name}
         {isActive && (
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-900 rounded-full"></span>
+            <span className="absolute bottom-0 left-3 md:left-0 right-3 md:right-0 h-0.5 bg-purple-900 rounded-full"></span>
         )}
     </Link>
 ))
@@ -57,6 +57,19 @@ export const HeroHeader = memo(() => {
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
     }, [handleScroll])
+
+    // Close menu when clicking outside
+    React.useEffect(() => {
+        if (menuState) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+        
+        return () => {
+            document.body.style.overflow = 'unset'
+        }
+    }, [menuState])
     
     return (
         <nav className={cn(
@@ -70,7 +83,7 @@ export const HeroHeader = memo(() => {
                     </div>
                     
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+                    <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
                         {menuItems.map((item, index) => (
                             <MenuItem 
                                 key={index} 
@@ -81,48 +94,74 @@ export const HeroHeader = memo(() => {
                     </div>
                     
                     {/* Auth Buttons */}
-                    <div className="hidden md:flex items-center space-x-4">
-                        <Button className="px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-gray-900 text-white font-medium flex items-center hover:bg-purple-900 text-sm sm:text-base transition-colors duration-300">
+                    <div className="hidden lg:flex items-center space-x-4">
+                        <Button className="px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-gray-900 text-white font-medium flex items-center hover:bg-purple-900 text-sm lg:text-base transition-colors duration-300">
                             Get Started For Free <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
                     </div>
                     
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden">
+                    <div className="lg:hidden">
                         <button 
                             onClick={toggleMenu}
-                            className="text-gray-500 hover:text-gray-800 p-2 transition-colors duration-300"
+                            className="text-gray-500 hover:text-gray-800 p-2 transition-colors duration-300 relative z-50"
                             aria-label="Toggle menu"
                         >
-                            {menuState ? <X size={20} /> : <Menu size={20} />}
+                            {menuState ? <X size={24} /> : <Menu size={24} />}
                         </button>
                     </div>
                 </div>
             </div>
             
-            {/* Mobile Menu */}
+            {/* Mobile Menu Overlay */}
             {menuState && (
-                <div className="md:hidden bg-white shadow-lg border-t">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        {menuItems.map((item, index) => (
-                            <div key={index} className="block px-3 py-2">
-                                <MenuItem 
-                                    item={item} 
-                                    isActive={pathname === item.href} 
-                                    onClick={closeMenu}
-                                />
-                            </div>
-                        ))}
+                <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40" onClick={closeMenu} />
+            )}
+            
+            {/* Mobile Menu */}
+            <div className={cn(
+                "lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-40",
+                menuState ? "translate-x-0" : "translate-x-full"
+            )}>
+                <div className="flex flex-col h-full">
+                    {/* Menu Header */}
+                    <div className="flex items-center justify-between p-6 border-b">
+                        <Logo />
+                        <button 
+                            onClick={closeMenu}
+                            className="text-gray-500 hover:text-gray-800 p-2"
+                            aria-label="Close menu"
+                        >
+                            <X size={24} />
+                        </button>
                     </div>
-                    <div className="pt-4 pb-3 border-t border-gray-200">
-                        <div className="flex flex-col space-y-3 px-3">
-                            <Button className="px-4 py-2 rounded-full bg-gray-900 text-white font-medium w-full text-center flex items-center justify-center text-sm transition-colors duration-300">
-                                Get Started For Free <ArrowRight className="ml-2 h-4 w-4" />
-                            </Button>
+                    
+                    {/* Menu Items */}
+                    <div className="flex-1 py-6">
+                        <div className="space-y-1">
+                            {menuItems.map((item, index) => (
+                                <div key={index}>
+                                    <MenuItem 
+                                        item={item} 
+                                        isActive={pathname === item.href} 
+                                        onClick={closeMenu}
+                                    />
+                                </div>
+                            ))}
                         </div>
                     </div>
+                    
+                    {/* Menu Footer */}
+                    <div className="p-6 border-t">
+                        <Button 
+                            onClick={closeMenu}
+                            className="w-full px-4 py-3 rounded-full bg-gray-900 text-white font-medium flex items-center justify-center text-sm transition-colors duration-300 hover:bg-purple-900"
+                        >
+                            Get Started For Free <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                    </div>
                 </div>
-            )}
+            </div>
         </nav>
     )
 })
