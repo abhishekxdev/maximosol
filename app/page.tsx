@@ -7,16 +7,22 @@ import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 
-// Dynamically import components that use client-side features
-const AppleCardsCarousel = dynamic(() => import('@/components/ui/apple-cards-carousel').then(mod => ({ default: mod.AppleCardsCarousel })), { 
-  ssr: false,
-  loading: () => <div className="h-96 animate-pulse bg-gray-200 rounded-lg"></div>
-})
+// Dynamically import components that use client-side features with proper error handling
+const AppleCardsCarousel = dynamic(
+  () => import('@/components/ui/apple-cards-carousel').then((mod) => ({ default: mod.AppleCardsCarousel })), 
+  { 
+    ssr: false,
+    loading: () => <div className="h-96 animate-pulse bg-gray-200 rounded-lg"></div>
+  }
+)
 
-const WhyChooseUsBento = dynamic(() => import('@/components/why-choose-us-bento').then(mod => ({ default: mod.WhyChooseUsBento })), { 
-  ssr: false,
-  loading: () => <div className="h-96 animate-pulse bg-gray-200 rounded-lg"></div>
-})
+const WhyChooseUsBento = dynamic(
+  () => import('@/components/why-choose-us-bento').then((mod) => ({ default: mod.WhyChooseUsBento })), 
+  { 
+    ssr: false,
+    loading: () => <div className="h-96 animate-pulse bg-gray-200 rounded-lg"></div>
+  }
+)
 
 export default function Home() {
   return (
