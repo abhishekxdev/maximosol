@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Logo } from '@/components/logo'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -21,18 +22,24 @@ const MenuItem = memo(({ item, isActive, onClick }: { item: any, isActive: boole
         href={item.href}
         onClick={onClick}
         className={cn(
-            'font-medium transition-colors text-sm sm:text-base',
+            'font-medium transition-all duration-300 text-sm sm:text-base relative pb-1',
             isActive 
-                ? 'text-purple-900 border-b-2 border-purple-900' 
+                ? 'text-purple-900' 
                 : 'text-gray-600 hover:text-purple-900'
         )}>
         {item.name}
+        {isActive && (
+            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-900 rounded-full"></span>
+        )}
     </Link>
 ))
+
+MenuItem.displayName = 'MenuItem'
 
 export const HeroHeader = memo(() => {
     const [menuState, setMenuState] = React.useState(false)
     const [isScrolled, setIsScrolled] = React.useState(false)
+    const pathname = usePathname()
 
     const handleScroll = useCallback(() => {
         setIsScrolled(window.scrollY > 10)
@@ -68,14 +75,14 @@ export const HeroHeader = memo(() => {
                             <MenuItem 
                                 key={index} 
                                 item={item} 
-                                isActive={item.href === '/' && isScrolled}
+                                isActive={pathname === item.href}
                             />
                         ))}
                     </div>
                     
                     {/* Auth Buttons */}
                     <div className="hidden md:flex items-center space-x-4">
-                        <Button className="px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-gray-900 text-white font-medium flex items-center hover:bg-purple-900 text-sm sm:text-base">
+                        <Button className="px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-gray-900 text-white font-medium flex items-center hover:bg-purple-900 text-sm sm:text-base transition-colors duration-300">
                             Get Started For Free <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
                     </div>
@@ -84,7 +91,7 @@ export const HeroHeader = memo(() => {
                     <div className="md:hidden">
                         <button 
                             onClick={toggleMenu}
-                            className="text-gray-500 hover:text-gray-800 p-2"
+                            className="text-gray-500 hover:text-gray-800 p-2 transition-colors duration-300"
                             aria-label="Toggle menu"
                         >
                             {menuState ? <X size={20} /> : <Menu size={20} />}
@@ -101,7 +108,7 @@ export const HeroHeader = memo(() => {
                             <div key={index} className="block px-3 py-2">
                                 <MenuItem 
                                     item={item} 
-                                    isActive={item.href === '/'} 
+                                    isActive={pathname === item.href} 
                                     onClick={closeMenu}
                                 />
                             </div>
@@ -109,7 +116,7 @@ export const HeroHeader = memo(() => {
                     </div>
                     <div className="pt-4 pb-3 border-t border-gray-200">
                         <div className="flex flex-col space-y-3 px-3">
-                            <Button className="px-4 py-2 rounded-full bg-gray-900 text-white font-medium w-full text-center flex items-center justify-center text-sm">
+                            <Button className="px-4 py-2 rounded-full bg-gray-900 text-white font-medium w-full text-center flex items-center justify-center text-sm transition-colors duration-300">
                                 Get Started For Free <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </div>
