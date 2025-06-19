@@ -19,7 +19,7 @@ import {
   IconClock,
   IconPlant2,
 } from "@tabler/icons-react";
-import { motion } from "motion/react";
+import { motion } from "motion";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -357,4 +357,4 @@ const industryItems = [
     className: "md:col-span-1",
     icon: <IconCash className="h-4 w-4 text-green-500" />,
   },
-]; 
+];

@@ -17,7 +17,7 @@ import {
   IconDatabase,
   IconHeadset,
 } from "@tabler/icons-react";
-import { motion } from "motion/react";
+import { motion } from "motion";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 

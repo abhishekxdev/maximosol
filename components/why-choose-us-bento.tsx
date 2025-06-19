@@ -10,7 +10,7 @@ import {
   IconCheck,
   IconTrendingUp,
 } from "@tabler/icons-react";
-import { motion } from "motion/react";
+import { motion } from "motion";
 
 export function WhyChooseUsBento() {
   return (
@@ -338,4 +338,4 @@ const items = [
     className: "md:col-span-1",
     icon: <IconTrendingUp className="h-4 w-4 text-neutral-500" />,
   },
-]; 
+];
