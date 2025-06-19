@@ -10,7 +10,7 @@ import {
   IconCheck,
   IconTrendingUp,
 } from "@tabler/icons-react";
-import { motion } from "motion";
+import { motion } from "framer-motion";
 
 export function WhyChooseUsBento() {
   return (
