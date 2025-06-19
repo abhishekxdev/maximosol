@@ -27,7 +27,7 @@ export default function HeroSection() {
                         <div className="max-w-7xl mx-auto">
                             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                                 <div className="text-left order-2 lg:order-1">
-                                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal mb-4 sm:mb-6 font-['Helvetica'] tracking-tight leading-tight">
+                                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal mb-4 sm:mb-6 font-sans tracking-tight leading-tight">
                                         <span className="block">Shaping the <span className="bg-gradient-to-r from-purple-900 to-indigo-600 bg-clip-text text-transparent">Future</span> of AI with <span className="bg-gradient-to-r from-purple-900 to-indigo-600 bg-clip-text text-transparent">Accurate</span> <span className="bg-gradient-to-r from-purple-900 to-indigo-600 bg-clip-text text-transparent">Data</span></span>
                                     </h1>
                                     
