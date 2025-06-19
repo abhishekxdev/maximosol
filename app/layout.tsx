@@ -3,11 +3,19 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: 'Maximo Solutions - Data Annotation Services',
   description: 'Professional data annotation services for AI and machine learning projects',
+  keywords: 'data annotation, AI, machine learning, data labeling, computer vision',
+  authors: [{ name: 'Maximo Solutions' }],
+  viewport: 'width=device-width, initial-scale=1',
+  robots: 'index, follow',
 };
 
 export default function RootLayout({
@@ -16,7 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className={inter.className}>
         <AuroraBackground className="min-h-screen">
           {children}
