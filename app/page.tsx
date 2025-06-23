@@ -30,7 +30,7 @@ export default function Home() {
       <HeroSection />
       
       {/* Services Overview with Apple Cards Carousel */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 section-bg">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
             <Badge variant="outline" className="mb-2 sm:mb-4">Our Services</Badge>
@@ -92,7 +92,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us with Bento Grid */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 section-bg">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
             <Badge variant="outline" className="mb-2 sm:mb-4">Why Choose Maximo</Badge>
@@ -109,7 +109,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section - Mobile Responsive */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 section-bg">
         <div className="container mx-auto px-4 sm:px-6 flex justify-center">
           <div className="w-full max-w-2xl rounded-2xl sm:rounded-3xl shadow-xl border border-gray-200 bg-white/90 p-6 sm:p-8 md:p-12 text-center flex flex-col items-center space-y-6 sm:space-y-8">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">

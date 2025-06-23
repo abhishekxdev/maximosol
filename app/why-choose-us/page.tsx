@@ -108,7 +108,7 @@ export default function WhyChooseUs() {
       <HeroHeader />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16">
+      <section className="pt-32 pb-16 section-bg">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -150,7 +150,7 @@ export default function WhyChooseUs() {
       </section>
 
       {/* Key Advantages */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Our Competitive Edge</Badge>
@@ -204,7 +204,7 @@ export default function WhyChooseUs() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Proven Track Record</Badge>
@@ -253,7 +253,7 @@ export default function WhyChooseUs() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Client Testimonials</Badge>
@@ -282,7 +282,7 @@ export default function WhyChooseUs() {
       </section>
 
       {/* Process Excellence */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Our Methodology</Badge>
@@ -313,7 +313,7 @@ export default function WhyChooseUs() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <Card className="p-12 border-0 bg-white/60 backdrop-blur-sm shadow-2xl">

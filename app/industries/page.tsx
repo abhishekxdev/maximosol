@@ -17,7 +17,7 @@ export default function Industries() {
     <div className="min-h-screen">
       <HeroHeader />
       {/* Hero Section */}
-      <section className="pt-32 pb-16">
+      <section className="pt-32 pb-16 section-bg">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="outline" className="mb-4">Industries We Serve</Badge>
@@ -32,14 +32,14 @@ export default function Industries() {
       </section>
 
       {/* Industries Bento Grid */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <IndustriesBentoGrid />
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Our Impact Across Industries</Badge>
@@ -69,7 +69,7 @@ export default function Industries() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <Card className="p-12 border-0 bg-white/60 backdrop-blur-sm shadow-2xl">

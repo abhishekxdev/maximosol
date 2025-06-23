@@ -1,6 +1,5 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { AuroraBackground } from '@/components/ui/aurora-background';
 
 export const metadata: Metadata = {
   title: 'Maximo Solutions - Data Annotation Services',
@@ -18,10 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body>
-        <AuroraBackground className="min-h-screen">
-          {children}
-        </AuroraBackground>
+      <body className="maximo-bg-overlay">
+        {children}
       </body>
     </html>
   );

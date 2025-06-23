@@ -23,7 +23,7 @@ export default function About() {
     <div className="min-h-screen">
       <HeroHeader />
       {/* Hero Section */}
-      <section className="pt-32 pb-16">
+      <section className="pt-32 pb-16 section-bg">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <Badge variant="outline" className="mb-4">About Maximo Solutions</Badge>
@@ -39,7 +39,7 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Our Impact</Badge>
@@ -55,7 +55,7 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Our Values</Badge>

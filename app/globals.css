@@ -95,7 +95,55 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
     font-display: swap;
+    background-image: url('/maximobackground.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
+}
+
+/* Custom background overlay for better readability */
+.maximo-bg-overlay {
+  position: relative;
+}
+
+.maximo-bg-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(1px);
+  z-index: -1;
+}
+
+/* Section backgrounds with overlay */
+.section-bg {
+  position: relative;
+  background-image: url('/maximobackground.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: local;
+}
+
+.section-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.section-bg > * {
+  position: relative;
+  z-index: 1;
 }
 
 @layer utilities {

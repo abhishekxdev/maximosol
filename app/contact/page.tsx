@@ -36,7 +36,7 @@ export default function Contact() {
       <HeroHeader />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <section className="pt-32 pb-16 section-bg">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="outline" className="mb-4">Get In Touch</Badge>
@@ -51,10 +51,10 @@ export default function Contact() {
       </section>
 
       {/* Contact Card Only */}
-      <section className="py-24">
+      <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            <Card className="border-0 bg-white text-gray-900 shadow-xl p-8">
+            <Card className="border-0 bg-white/90 text-gray-900 shadow-xl p-8">
               <CardHeader>
                 <CardTitle className="text-2xl">Get in Touch</CardTitle>
                 <CardDescription className="text-gray-700">
@@ -95,7 +95,7 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12">
+      <section className="py-12 section-bg">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-extrabold mb-8 text-center bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">Frequently Asked Questions</h2>

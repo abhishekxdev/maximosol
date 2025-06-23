@@ -29,7 +29,7 @@ export default function HeroSection() {
                     <div className="w-64 h-64 absolute right-0 top-1/4 rotate-45 rounded-full bg-gradient-to-r from-purple-500/10 to-indigo-500/10 blur-3xl" />
                 </div>
                 
-                <section className="pt-20 pb-8 sm:pt-24 sm:pb-12 md:pt-32 md:pb-16 lg:pt-40 lg:pb-20">
+                <section className="pt-20 pb-8 sm:pt-24 sm:pb-12 md:pt-32 md:pb-16 lg:pt-40 lg:pb-20 section-bg">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                             {/* Text Content - Mobile First */}
@@ -97,7 +97,7 @@ export default function HeroSection() {
                 </section>
                 
                 {/* Industry Cards Section - Mobile Responsive */}
-                <section className="bg-white/60 backdrop-blur-sm py-8 sm:py-12 md:py-16">
+                <section className="py-8 sm:py-12 md:py-16 section-bg">
                     <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 transition-all duration-500">
                             {[
