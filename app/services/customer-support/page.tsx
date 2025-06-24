@@ -2,99 +2,116 @@ import { HeroHeader } from '@/components/header'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { CheckCircle, ArrowRight, Phone, Users, Target, TrendingUp, Globe, MessageSquare, Clock, ExternalLink, Headphones, BarChart3 } from 'lucide-react'
+import { CheckCircle, ArrowRight, Headphones, MessageSquare, Clock, Users, Globe, Phone, Mail, ExternalLink, BarChart3, Zap, Heart } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function TeleSales() {
+export default function CustomerSupport() {
   const capabilities = [
     {
-      title: "Outbound Sales Campaigns",
-      description: "Proactive calling to potential customers for product promotions, service offerings, and lead generation.",
-      icon: Phone,
-      features: [
-        "Product promotion campaigns",
-        "Lead generation calls",
-        "Market penetration strategies"
-      ],
-      applications: ["B2B Sales", "Product Launches", "Market Expansion"],
-      image: "/fintech.jpeg"
-    },
-    {
-      title: "Inbound Sales Support",
-      description: "Handling incoming inquiries, converting prospects into paying customers with persuasive conversations.",
+      title: "24/7 Multi-Channel Support",
+      description: "Round-the-clock customer service across phone, email, chat, and social media platforms.",
       icon: Headphones,
       features: [
-        "Inquiry handling",
-        "Prospect conversion",
-        "Solution-based selling"
+        "24/7 availability",
+        "Multi-channel support",
+        "Real-time assistance"
       ],
-      applications: ["Customer Service", "Sales Support", "Product Consultation"],
+      applications: ["E-commerce", "SaaS Platforms", "Healthcare", "Financial Services"],
       image: "/team.jpeg"
     },
     {
-      title: "Lead Qualification & Nurturing",
-      description: "Filtering raw leads into sales-qualified leads through structured conversations and follow-ups.",
-      icon: Target,
+      title: "Technical Help Desk",
+      description: "Expert technical assistance for software, hardware, and IT-related customer inquiries.",
+      icon: Users,
       features: [
-        "Lead scoring",
-        "Structured conversations",
-        "Follow-up campaigns"
+        "Technical troubleshooting",
+        "Software support",
+        "Hardware assistance"
       ],
-      applications: ["CRM Management", "Sales Pipeline", "Marketing Qualified Leads"],
-      image: "/accuracy.jpeg"
-    },
-    {
-      title: "Appointment Setting",
-      description: "Booking qualified meetings and demos for your sales team with decision-makers.",
-      icon: Clock,
-      features: [
-        "Decision-maker identification",
-        "Meeting scheduling",
-        "Demo appointments"
-      ],
-      applications: ["Sales Meetings", "Product Demos", "Consultation Booking"],
+      applications: ["Software Companies", "IT Services", "Technology Products", "Cloud Services"],
       image: "/advance.jpeg"
     },
     {
-      title: "B2B & B2C Tele Sales",
-      description: "Customized campaigns for both business and consumer markets across various sectors.",
-      icon: Users,
+      title: "Live Chat Services",
+      description: "Real-time chat support to engage customers instantly and resolve queries efficiently.",
+      icon: MessageSquare,
       features: [
-        "B2B sales strategies",
-        "B2C market approach",
-        "Sector-specific campaigns"
+        "Instant response",
+        "Real-time engagement",
+        "Query resolution"
       ],
-      applications: ["Finance", "Real Estate", "Healthcare", "Technology"],
+      applications: ["E-commerce Websites", "Service Portals", "Mobile Apps", "Online Platforms"],
+      image: "/fintech.jpeg"
+    },
+    {
+      title: "Help Desk Management",
+      description: "Comprehensive ticket management system for tracking, prioritizing, and resolving customer issues.",
+      icon: Clock,
+      features: [
+        "Ticket management",
+        "Issue prioritization",
+        "Resolution tracking"
+      ],
+      applications: ["Enterprise Software", "Service Companies", "Product Support", "Internal IT"],
+      image: "/accuracy.jpeg"
+    },
+    {
+      title: "Multilingual Support",
+      description: "Customer service in multiple languages to serve global customer base effectively.",
+      icon: Globe,
+      features: [
+        "Multiple languages",
+        "Cultural awareness",
+        "Global coverage"
+      ],
+      applications: ["International Business", "Global E-commerce", "Travel & Tourism", "Education"],
       image: "/global.jpeg"
+    },
+    {
+      title: "Customer Success Management",
+      description: "Proactive customer relationship management to ensure satisfaction and retention.",
+      icon: Heart,
+      features: [
+        "Proactive outreach",
+        "Relationship management",
+        "Retention strategies"
+      ],
+      applications: ["SaaS Companies", "Subscription Services", "B2B Platforms", "Enterprise Solutions"],
+      image: "/retail.jpeg"
     }
   ]
 
   const whyChooseUs = [
     {
-      icon: "🗣️",
-      title: "Trained, multilingual tele sales agents with domain expertise",
-      description: "Professional agents with deep industry knowledge and multilingual capabilities."
+      icon: "🎧",
+      title: "Expert Support Agents",
+      description: "Trained customer service professionals with deep product knowledge and communication skills."
     },
     {
-      icon: "🧩",
-      title: "Personalized call scripts aligned with your product & audience",
-      description: "Custom-crafted scripts that resonate with your target audience."
+      icon: "⚡",
+      title: "Fast Response Times",
+      description: "Quick resolution of customer queries with industry-leading response and resolution times."
     },
     {
-      icon: "🔄",
-      title: "Scalable calling operations—regional or global",
-      description: "Flexible operations that scale from local to global campaigns."
+      icon: "🌍",
+      title: "Global Coverage",
+      description: "24/7 support across multiple time zones with multilingual capabilities."
     },
     {
       icon: "📊",
-      title: "Real-time reporting, call analytics, and conversion tracking",
-      description: "Comprehensive analytics to track performance and optimize campaigns."
+      title: "Performance Analytics",
+      description: "Detailed reporting and analytics to track customer satisfaction and support metrics."
     },
     {
-      icon: "🔐",
-      title: "100% data privacy and compliance with calling regulations",
-      description: "Strict adherence to data protection laws and calling regulations."
+      icon: "🔧",
+      title: "Custom Solutions",
+      description: "Tailored support solutions designed to meet your specific business requirements."
+    },
+    {
+      icon: "💝",
+      title: "Customer-Centric Approach",
+      description: "Focus on customer satisfaction and building long-term relationships with your clients."
     }
   ]
 
@@ -106,12 +123,12 @@ export default function TeleSales() {
       <section className="pt-32 pb-16 section-bg">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="outline" className="mb-4">Tele Sales Services</Badge>
+            <Badge variant="outline" className="mb-4">Customer Support Services</Badge>
             <h1 className="text-5xl font-extrabold tracking-tight mb-6 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-              Professional <span className="text-primary">Tele Sales</span> Solutions
+              Exceptional <span className="text-primary">Customer Support</span> Solutions
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Drive business growth with our comprehensive telemarketing and sales support services. From lead generation to customer conversion, we help you reach your sales targets effectively.
+              Enhance your customer experience with our comprehensive 24/7 customer service solutions. From technical support to live chat services, we help you build lasting customer relationships.
             </p>
           </div>
         </div>
@@ -121,12 +138,12 @@ export default function TeleSales() {
       <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4">Our Tele Sales Capabilities Include</Badge>
+            <Badge variant="outline" className="mb-4">Our Customer Support Capabilities</Badge>
             <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-              Comprehensive Sales Support Services
+              Complete Customer Service Solutions
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From outbound campaigns to inbound support, we provide end-to-end tele sales solutions tailored to your business needs.
+              From multi-channel support to technical assistance, we provide comprehensive customer service solutions that enhance satisfaction and loyalty.
             </p>
           </div>
           
@@ -191,12 +208,12 @@ export default function TeleSales() {
       <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4">Why Choose Maximo for Tele Sales?</Badge>
+            <Badge variant="outline" className="mb-4">Why Choose Maximo for Customer Support?</Badge>
             <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-              Your Trusted Tele Sales Partner
+              Your Trusted Customer Service Partner
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Experience the difference with our professional, results-driven approach to telemarketing and sales support.
+              Experience the difference with our professional, customer-centric approach to support services.
             </p>
           </div>
           
@@ -223,9 +240,9 @@ export default function TeleSales() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Our Process</Badge>
-            <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">How We Drive Sales Success</h2>
+            <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">How We Deliver Excellence</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our proven methodology ensures maximum conversion rates and sustainable sales growth
+              Our proven methodology ensures exceptional customer service and satisfaction
             </p>
           </div>
           
@@ -233,23 +250,23 @@ export default function TeleSales() {
             {[
               {
                 step: "01",
-                title: "Campaign Strategy",
-                description: "We develop customized tele sales strategies aligned with your business goals and target audience."
+                title: "Needs Assessment",
+                description: "We analyze your customer support requirements and design a customized service strategy."
               },
               {
                 step: "02", 
-                title: "Script Development",
-                description: "Creating personalized call scripts that resonate with your prospects and drive conversions."
+                title: "Team Training",
+                description: "Our agents receive comprehensive training on your products, services, and brand values."
               },
               {
                 step: "03",
-                title: "Execution & Monitoring",
-                description: "Professional execution with real-time monitoring and performance optimization."
+                title: "Service Delivery",
+                description: "Professional customer support with real-time monitoring and quality assurance."
               },
               {
                 step: "04",
-                title: "Analytics & Reporting",
-                description: "Comprehensive reporting with actionable insights for continuous improvement."
+                title: "Continuous Improvement",
+                description: "Regular performance reviews and optimization based on customer feedback and metrics."
               }
             ].map((process, index) => (
               <Card key={index} className="text-center p-8 border-0 bg-white/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
@@ -270,37 +287,37 @@ export default function TeleSales() {
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Our Performance</Badge>
             <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-              Proven Results in Tele Sales
+              Proven Customer Support Excellence
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Numbers that demonstrate our commitment to driving your sales success
+              Numbers that demonstrate our commitment to exceptional customer service
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
               { 
-                number: "85%", 
-                label: "Lead Conversion Rate", 
-                description: "Average conversion from leads to sales",
-                icon: TrendingUp 
+                number: "98%", 
+                label: "Customer Satisfaction", 
+                description: "Average customer satisfaction rating",
+                icon: Heart 
               },
               { 
-                number: "200+", 
-                label: "Campaigns Executed", 
-                description: "Successful tele sales campaigns",
-                icon: BarChart3 
+                number: "< 2min", 
+                label: "Response Time", 
+                description: "Average first response time",
+                icon: Zap 
               },
               { 
-                number: "50K+", 
-                label: "Calls Per Month", 
-                description: "Professional sales calls handled",
-                icon: Phone 
+                number: "24/7", 
+                label: "Support Coverage", 
+                description: "Round-the-clock availability",
+                icon: Clock 
               },
               { 
-                number: "15+", 
+                number: "20+", 
                 label: "Languages Supported", 
-                description: "Multilingual sales capabilities",
+                description: "Multilingual support capabilities",
                 icon: Globe 
               }
             ].map((stat, index) => (
@@ -321,36 +338,36 @@ export default function TeleSales() {
           <div className="max-w-4xl mx-auto text-center">
             <Card className="p-12 border-0 bg-white/60 backdrop-blur-sm shadow-2xl">
               <div className="mb-8">
-                <Badge variant="outline" className="mb-4">Get Started Today</Badge>
+                <Badge variant="outline" className="mb-4">Enhance Your Customer Experience</Badge>
                 <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-                  Ready to Boost Your Sales?
+                  Ready to Elevate Your Customer Support?
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Let's discuss your tele sales needs and create a custom campaign that drives results and accelerates your business growth.
+                  Let's discuss your customer support needs and create a custom solution that enhances satisfaction and builds lasting relationships.
                 </p>
               </div>
               
               <div className="grid md:grid-cols-2 gap-6 mb-10">
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <Phone className="h-5 w-5 text-primary" />
-                    <h3 className="font-semibold text-lg text-gray-800">Professional Agents</h3>
+                    <Headphones className="h-5 w-5 text-primary" />
+                    <h3 className="font-semibold text-lg text-gray-800">Expert Agents</h3>
                   </div>
-                  <p className="text-sm text-gray-600">Trained multilingual sales professionals</p>
+                  <p className="text-sm text-gray-600">Trained customer service professionals</p>
                 </div>
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
                     <BarChart3 className="h-5 w-5 text-primary" />
-                    <h3 className="font-semibold text-lg text-gray-800">Real-time Analytics</h3>
+                    <h3 className="font-semibold text-lg text-gray-800">Performance Analytics</h3>
                   </div>
-                  <p className="text-sm text-gray-600">Comprehensive reporting and insights</p>
+                  <p className="text-sm text-gray-600">Detailed reporting and insights</p>
                 </div>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="group bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-4 rounded-full shadow-lg text-lg font-semibold">
                   <Link href="/contact">
-                    Start Your Campaign
+                    Start Your Support Solution
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>

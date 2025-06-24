@@ -15,12 +15,9 @@ export default function DataServices() {
       features: [
         "Object detection",
         "Segmentation",
-        "Tagging",
-        "Bounding boxes",
-        "Polygons",
-        "Landmark annotation"
+        "Tagging"
       ],
-      applications: ["Autonomous Vehicles", "Medical Imaging", "Retail AI", "Agriculture"],
+      applications: ["Autonomous Vehicles", "Medical Imaging", "Retail AI"],
       image: "/imagean.jpeg",
       href: "/services/image-annotation"
     },
@@ -29,11 +26,11 @@ export default function DataServices() {
       description: "Frame-by-frame object tracking, activity recognition, and keyframe extraction.",
       icon: Video,
       features: [
-        "Frame-by-frame object tracking",
+        "Object tracking",
         "Activity recognition",
         "Keyframe extraction"
       ],
-      applications: ["Surveillance", "Sports Analytics", "Autonomous Vehicles", "Media AI"],
+      applications: ["Surveillance", "Sports Analytics", "Autonomous Vehicles"],
       image: "/video1.jpeg",
       href: "/services/video-annotation"
     },
@@ -42,11 +39,11 @@ export default function DataServices() {
       description: "Named entity recognition (NER), sentiment analysis, and linguistic tagging for NLP.",
       icon: FileText,
       features: [
-        "Named entity recognition (NER)",
+        "Named entity recognition",
         "Sentiment analysis",
         "Linguistic tagging"
       ],
-      applications: ["Chatbots", "Document Processing", "Social Media Analysis", "Finance"],
+      applications: ["Chatbots", "Document Processing", "Social Media"],
       image: "/textan.jpeg",
       href: "/services/text-annotation"
     },
@@ -55,23 +52,24 @@ export default function DataServices() {
       description: "Speech-to-text transcription, sound event tagging, and classification.",
       icon: Headphones,
       features: [
-        "Speech-to-text transcription",
+        "Speech-to-text",
         "Sound event tagging",
-        "Sound classification"
+        "Audio classification"
       ],
-      applications: ["Voice Assistants", "Call Centers", "Accessibility", "Music Platforms"],
+      applications: ["Voice Assistants", "Call Centers", "Accessibility"],
       image: "/audio.jpeg",
       href: "/services/audio-annotation"
     },
     {
-      title: "3D Point Cloud Annotation",
+      title: "3D Point Cloud",
       description: "Lidar-based object detection for autonomous vehicles and 3D environment mapping.",
       icon: Box,
       features: [
-        "Lidar-based object detection",
-        "3D environment mapping"
+        "Lidar object detection",
+        "3D environment mapping",
+        "Spatial analysis"
       ],
-      applications: ["Autonomous Vehicles", "Robotics", "Smart Cities", "AR/VR"],
+      applications: ["Autonomous Vehicles", "Robotics", "Smart Cities"],
       image: "/3dcloud.jpeg",
       href: "/services/3d-point-cloud"
     },
@@ -80,14 +78,11 @@ export default function DataServices() {
       description: "Comprehensive data gathering from multiple sources to build robust datasets.",
       icon: Database,
       features: [
-        "Web scraping and crawling",
+        "Web scraping",
         "Survey data collection",
-        "API data extraction",
-        "Real-time data gathering",
-        "Multi-source aggregation",
-        "Custom data acquisition"
+        "API data extraction"
       ],
-      applications: ["Market Research", "AI Training", "Business Intelligence", "Academic Research"],
+      applications: ["Market Research", "AI Training", "Business Intelligence"],
       image: "/custom.jpeg",
       href: "/services/data-collection"
     },
@@ -98,12 +93,9 @@ export default function DataServices() {
       features: [
         "Document digitization",
         "Form processing",
-        "Database entry",
-        "Invoice processing",
-        "Catalog management",
-        "CRM data entry"
+        "Database entry"
       ],
-      applications: ["Healthcare Records", "Financial Documents", "E-commerce", "Legal Services"],
+      applications: ["Healthcare Records", "Financial Documents", "E-commerce"],
       image: "/textan.jpeg",
       href: "/services/data-entry"
     },
@@ -114,12 +106,9 @@ export default function DataServices() {
       features: [
         "Duplicate removal",
         "Data validation",
-        "Format standardization",
-        "Error correction",
-        "Missing data handling",
-        "Quality assurance"
+        "Format standardization"
       ],
-      applications: ["CRM Systems", "Marketing Databases", "Financial Records", "Healthcare Data"],
+      applications: ["CRM Systems", "Marketing Databases", "Financial Records"],
       image: "/accuracy.jpeg",
       href: "/services/data-cleansing"
     },
@@ -130,12 +119,9 @@ export default function DataServices() {
       features: [
         "Data transformation",
         "Statistical analysis",
-        "Data mining",
-        "Pattern recognition",
-        "Report generation",
-        "Business intelligence"
+        "Pattern recognition"
       ],
-      applications: ["Business Analytics", "Predictive Modeling", "Performance Metrics", "Decision Support"],
+      applications: ["Business Analytics", "Predictive Modeling", "Decision Support"],
       image: "/advance.jpeg",
       href: "/services/data-processing"
     }
@@ -163,61 +149,64 @@ export default function DataServices() {
       {/* Services Grid */}
       <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
-          <div className="grid gap-16 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="overflow-hidden border-0 bg-white/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div className={`grid lg:grid-cols-2 gap-12 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                  <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover rounded-xl shadow-lg"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
-                  </div>
-                  <div className={`p-10 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                    <div className="flex items-start gap-6 mb-8">
-                      <service.icon className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
-                      <div className="flex-1">
-                        <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">{service.title}</h3>
-                        <p className="text-lg text-muted-foreground leading-relaxed">{service.description}</p>
-                      </div>
+              <Card key={index} className="border-0 bg-white/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="relative h-48 overflow-hidden rounded-t-xl">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute top-4 left-4">
+                    <div className="h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
+                      <service.icon className="h-5 w-5 text-primary" />
                     </div>
-                    
-                    <div className="grid md:grid-cols-2 gap-8 mb-10">
-                      <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
-                        <h4 className="font-semibold mb-4 text-lg text-gray-800">Key Features</h4>
-                        <ul className="space-y-3">
-                          {service.features.slice(0, 3).map((feature, idx) => (
-                            <li key={idx} className="flex items-center text-sm text-gray-700">
-                              <CheckCircle className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
-                        <h4 className="font-semibold mb-4 text-lg text-gray-800">Applications</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {service.applications.map((app, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">
-                              {app}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <Button asChild className="group bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-3 rounded-full shadow-lg">
-                      <Link href={service.href}>
-                        Learn More
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
                   </div>
                 </div>
+                
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    {service.description}
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold mb-2 text-sm text-gray-800">Key Features</h4>
+                      <ul className="space-y-1">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center text-xs text-gray-600">
+                            <CheckCircle className="h-3 w-3 text-primary mr-2 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold mb-2 text-sm text-gray-800">Applications</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {service.applications.map((app, idx) => (
+                          <Badge key={idx} variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">
+                            {app}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <Button asChild className="w-full mt-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white rounded-full">
+                    <Link href={service.href}>
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
               </Card>
             ))}
           </div>

@@ -15,12 +15,9 @@ export default function SurveillanceMonitoring() {
       features: [
         "Real-time live monitoring",
         "Suspicious activity detection",
-        "Intrusion alerts",
-        "Safety violation identification",
-        "Professional oversight",
-        "Immediate response protocols"
+        "Intrusion alerts"
       ],
-      applications: ["Corporate Security", "Retail Stores", "Industrial Facilities", "Public Spaces"],
+      applications: ["Corporate Security", "Retail Stores", "Industrial Facilities"],
       image: "/survilleance.jpeg"
     },
     {
@@ -30,27 +27,21 @@ export default function SurveillanceMonitoring() {
       features: [
         "Detailed footage analysis",
         "Event identification",
-        "Incident documentation",
-        "Investigation support",
-        "Comprehensive reporting",
-        "Evidence compilation"
+        "Incident documentation"
       ],
-      applications: ["Legal Proceedings", "Insurance Claims", "Security Audits", "Compliance Reporting"],
+      applications: ["Legal Proceedings", "Insurance Claims", "Security Audits"],
       image: "/security.jpeg"
     },
     {
       title: "Smart Alerts & Real-Time Escalation",
-      description: "Integration with AI-based motion detection and alert systems to instantly notify relevant personnel or emergency responders.",
+      description: "Integration with AI-based motion detection and alert systems to instantly notify relevant personnel.",
       icon: AlertTriangle,
       features: [
         "AI-powered motion detection",
         "Instant alert notifications",
-        "Emergency response coordination",
-        "Automated escalation protocols",
-        "Multi-channel notifications",
-        "Priority-based alerts"
+        "Emergency response coordination"
       ],
-      applications: ["Emergency Response", "Critical Infrastructure", "High-Security Areas", "Public Safety"],
+      applications: ["Emergency Response", "Critical Infrastructure", "High-Security Areas"],
       image: "/advance.jpeg"
     },
     {
@@ -60,42 +51,33 @@ export default function SurveillanceMonitoring() {
       features: [
         "Entry/exit point monitoring",
         "Badge access verification",
-        "Unauthorized movement detection",
-        "Access log maintenance",
-        "Visitor tracking",
-        "Security breach prevention"
+        "Unauthorized movement detection"
       ],
-      applications: ["Corporate Buildings", "Data Centers", "Government Facilities", "Healthcare Institutions"],
+      applications: ["Corporate Buildings", "Data Centers", "Government Facilities"],
       image: "/team.jpeg"
     },
     {
       title: "Retail & Facility Surveillance",
-      description: "Monitoring to prevent theft, ensure crowd control, track inventory zones, or support operations at warehouses and retail stores.",
+      description: "Monitoring to prevent theft, ensure crowd control, track inventory zones, or support operations.",
       icon: Camera,
       features: [
         "Theft prevention monitoring",
         "Crowd control management",
-        "Inventory zone tracking",
-        "Operational support",
-        "Customer behavior analysis",
-        "Loss prevention strategies"
+        "Inventory zone tracking"
       ],
-      applications: ["Retail Stores", "Warehouses", "Shopping Centers", "Distribution Centers"],
+      applications: ["Retail Stores", "Warehouses", "Shopping Centers"],
       image: "/retail.jpeg"
     },
     {
       title: "Health, Safety & Compliance Checks",
-      description: "Observe worker safety gear usage, hazardous zones, restricted areas, and SOP adherence in industrial or construction settings.",
+      description: "Observe worker safety gear usage, hazardous zones, restricted areas, and SOP adherence.",
       icon: Users,
       features: [
         "Safety gear compliance",
         "Hazardous zone monitoring",
-        "Restricted area surveillance",
-        "SOP adherence verification",
-        "Worker safety tracking",
-        "Compliance documentation"
+        "SOP adherence verification"
       ],
-      applications: ["Construction Sites", "Manufacturing Plants", "Chemical Facilities", "Mining Operations"],
+      applications: ["Construction Sites", "Manufacturing Plants", "Chemical Facilities"],
       image: "/manufacturing.jpeg"
     }
   ]
@@ -104,32 +86,32 @@ export default function SurveillanceMonitoring() {
     {
       icon: "👁️",
       title: "Expert Surveillance Professionals",
-      description: "Trained security specialists with extensive experience in threat detection and incident response across various industries."
+      description: "Trained security specialists with extensive experience in threat detection and incident response."
     },
     {
       icon: "🔒",
       title: "Advanced Technology Integration",
-      description: "State-of-the-art surveillance systems with AI-powered analytics for enhanced detection and response capabilities."
+      description: "State-of-the-art surveillance systems with AI-powered analytics for enhanced detection."
     },
     {
       icon: "⚡",
       title: "Real-Time Response & Escalation",
-      description: "Immediate threat detection with rapid escalation protocols to ensure swift response to security incidents."
+      description: "Immediate threat detection with rapid escalation protocols for swift response."
     },
     {
       icon: "📊",
       title: "Comprehensive Reporting & Analytics",
-      description: "Detailed incident reports, trend analysis, and security insights to improve your overall security posture."
+      description: "Detailed incident reports, trend analysis, and security insights."
     },
     {
       icon: "🌍",
       title: "Global Coverage & Local Expertise",
-      description: "Worldwide surveillance capabilities with local knowledge and compliance with regional security regulations."
+      description: "Worldwide surveillance capabilities with local knowledge and compliance."
     },
     {
       icon: "🛡️",
       title: "Proactive Security Approach",
-      description: "Prevention-focused monitoring that identifies potential threats before they escalate into serious incidents."
+      description: "Prevention-focused monitoring that identifies potential threats early."
     }
   ]
 
@@ -168,54 +150,57 @@ export default function SurveillanceMonitoring() {
             </p>
           </div>
           
-          <div className="grid gap-16 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {capabilities.map((capability, index) => (
-              <Card key={index} className="overflow-hidden border-0 bg-white/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div className={`grid lg:grid-cols-2 gap-12 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                  <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                    <Image
-                      src={capability.image}
-                      alt={capability.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover rounded-xl shadow-lg"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
-                  </div>
-                  <div className={`p-10 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                    <div className="flex items-start gap-6 mb-8">
-                      <capability.icon className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
-                      <div className="flex-1">
-                        <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">{capability.title}</h3>
-                        <p className="text-lg text-muted-foreground leading-relaxed">{capability.description}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="grid md:grid-cols-2 gap-8 mb-10">
-                      <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
-                        <h4 className="font-semibold mb-4 text-lg text-gray-800">Key Features</h4>
-                        <ul className="space-y-3">
-                          {capability.features.slice(0, 3).map((feature, idx) => (
-                            <li key={idx} className="flex items-center text-sm text-gray-700">
-                              <CheckCircle className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
-                        <h4 className="font-semibold mb-4 text-lg text-gray-800">Applications</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {capability.applications.map((app, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">
-                              {app}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
+              <Card key={index} className="border-0 bg-white/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="relative h-48 overflow-hidden rounded-t-xl">
+                  <Image
+                    src={capability.image}
+                    alt={capability.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute top-4 left-4">
+                    <div className="h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
+                      <capability.icon className="h-5 w-5 text-primary" />
                     </div>
                   </div>
                 </div>
+                
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                    {capability.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    {capability.description}
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold mb-2 text-sm text-gray-800">Key Features</h4>
+                      <ul className="space-y-1">
+                        {capability.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center text-xs text-gray-600">
+                            <CheckCircle className="h-3 w-3 text-primary mr-2 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold mb-2 text-sm text-gray-800">Applications</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {capability.applications.map((app, idx) => (
+                          <Badge key={idx} variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">
+                            {app}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
               </Card>
             ))}
           </div>
@@ -237,13 +222,13 @@ export default function SurveillanceMonitoring() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {whyChooseUs.map((item, index) => (
-              <Card key={index} className="p-8 border-0 bg-white/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <Card key={index} className="p-6 border-0 bg-white/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
-                  <div className="text-4xl mb-6">{item.icon}</div>
-                  <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                  <div className="text-3xl mb-4">{item.icon}</div>
+                  <h3 className="text-lg font-bold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                     {item.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {item.description}
                   </p>
                 </div>
