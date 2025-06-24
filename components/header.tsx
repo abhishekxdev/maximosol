@@ -2,39 +2,142 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Logo } from '@/components/logo'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import React, { memo, useCallback } from 'react'
+import React, { memo, useCallback, useState } from 'react'
 import { cn } from '@/lib/utils'
 
 const menuItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
+    { 
+        name: 'Services', 
+        href: '/services',
+        hasDropdown: true,
+        dropdownItems: [
+            { name: 'Data Services', href: '/services/data-services' },
+            { name: 'Tele Sales', href: '/services/tele-sales' },
+            { name: 'Customer Support', href: '/services/customer-support' },
+            { name: 'Surveillance Monitoring', href: '/services/surveillance-monitoring' }
+        ]
+    },
     { name: 'Industries', href: '/industries' },
     { name: 'Why Choose Us', href: '/why-choose-us' },
     { name: 'Contact', href: '/contact' },
 ]
 
 // Memoized menu item component
-const MenuItem = memo(({ item, isActive, onClick }: { item: any, isActive: boolean, onClick?: () => void }) => (
-    <Link
-        href={item.href}
-        onClick={onClick}
-        className={cn(
-            'font-medium transition-all duration-300 text-sm lg:text-base relative pb-1 block px-3 py-2 md:px-0 md:py-0',
-            isActive 
-                ? 'text-purple-900' 
-                : 'text-gray-600 hover:text-purple-900'
-        )}>
-        {item.name}
-        {isActive && (
-            <span className="absolute bottom-0 left-3 md:left-0 right-3 md:right-0 h-0.5 bg-purple-900 rounded-full"></span>
-        )}
-    </Link>
-))
+const MenuItem = memo(({ item, isActive, onClick }: { item: any, isActive: boolean, onClick?: () => void }) => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+    if (item.hasDropdown) {
+        return (
+            <div 
+                className="relative group"
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+            >
+                <Link
+                    href={item.href}
+                    onClick={onClick}
+                    className={cn(
+                        'font-medium transition-all duration-300 text-sm lg:text-base relative pb-1 flex items-center gap-1 px-3 py-2 md:px-0 md:py-0',
+                        isActive 
+                            ? 'text-purple-900' 
+                            : 'text-gray-600 hover:text-purple-900'
+                    )}>
+                    {item.name}
+                    <ChevronDown className={cn(
+                        "h-4 w-4 transition-transform duration-200",
+                        isDropdownOpen ? "rotate-180" : ""
+                    )} />
+                    {isActive && (
+                        <span className="absolute bottom-0 left-3 md:left-0 right-3 md:right-0 h-0.5 bg-purple-900 rounded-full"></span>
+                    )}
+                </Link>
+                
+                {/* Desktop Dropdown */}
+                <div className={cn(
+                    "absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 transition-all duration-200 hidden md:block",
+                    isDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+                )}>
+                    {item.dropdownItems.map((dropdownItem: any, index: number) => (
+                        <Link
+                            key={index}
+                            href={dropdownItem.href}
+                            onClick={onClick}
+                            className="block px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 transition-colors duration-200 border-b border-gray-100 last:border-b-0"
+                        >
+                            {dropdownItem.name}
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        )
+    }
+
+    return (
+        <Link
+            href={item.href}
+            onClick={onClick}
+            className={cn(
+                'font-medium transition-all duration-300 text-sm lg:text-base relative pb-1 block px-3 py-2 md:px-0 md:py-0',
+                isActive 
+                    ? 'text-purple-900' 
+                    : 'text-gray-600 hover:text-purple-900'
+            )}>
+            {item.name}
+            {isActive && (
+                <span className="absolute bottom-0 left-3 md:left-0 right-3 md:right-0 h-0.5 bg-purple-900 rounded-full"></span>
+            )}
+        </Link>
+    )
+})
+
+// Mobile dropdown component
+const MobileDropdown = memo(({ item, isActive, onClick }: { item: any, isActive: boolean, onClick?: () => void }) => {
+    const [isOpen, setIsOpen] = useState(false)
+
+    if (!item.hasDropdown) return null
+
+    return (
+        <div className="px-3">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className={cn(
+                    'w-full flex items-center justify-between font-medium transition-all duration-300 text-sm relative pb-1 px-0 py-2',
+                    isActive 
+                        ? 'text-purple-900' 
+                        : 'text-gray-600 hover:text-purple-900'
+                )}
+            >
+                {item.name}
+                <ChevronDown className={cn(
+                    "h-4 w-4 transition-transform duration-200",
+                    isOpen ? "rotate-180" : ""
+                )} />
+            </button>
+            
+            {isOpen && (
+                <div className="ml-4 mt-2 space-y-1 border-l-2 border-purple-100 pl-4">
+                    {item.dropdownItems.map((dropdownItem: any, index: number) => (
+                        <Link
+                            key={index}
+                            href={dropdownItem.href}
+                            onClick={onClick}
+                            className="block py-2 text-sm text-gray-600 hover:text-purple-900 transition-colors duration-200"
+                        >
+                            {dropdownItem.name}
+                        </Link>
+                    ))}
+                </div>
+            )}
+        </div>
+    )
+})
 
 MenuItem.displayName = 'MenuItem'
+MobileDropdown.displayName = 'MobileDropdown'
 
 export const HeroHeader = memo(() => {
     const [menuState, setMenuState] = React.useState(false)
@@ -90,7 +193,7 @@ export const HeroHeader = memo(() => {
                             <MenuItem 
                                 key={index} 
                                 item={item} 
-                                isActive={pathname === item.href}
+                                isActive={pathname === item.href || (item.hasDropdown && item.dropdownItems?.some((dropdownItem: any) => pathname === dropdownItem.href))}
                             />
                         ))}
                     </div>
@@ -142,15 +245,25 @@ export const HeroHeader = memo(() => {
                     </div>
                     
                     {/* Menu Items */}
-                    <div className="flex-1 py-6 bg-white">
+                    <div className="flex-1 py-6 bg-white overflow-y-auto">
                         <div className="space-y-1">
                             {menuItems.map((item, index) => (
-                                <div key={index} className="px-3">
-                                    <MenuItem 
-                                        item={item} 
-                                        isActive={pathname === item.href} 
-                                        onClick={closeMenu}
-                                    />
+                                <div key={index}>
+                                    {item.hasDropdown ? (
+                                        <MobileDropdown 
+                                            item={item} 
+                                            isActive={pathname === item.href || (item.dropdownItems?.some((dropdownItem: any) => pathname === dropdownItem.href))} 
+                                            onClick={closeMenu}
+                                        />
+                                    ) : (
+                                        <div className="px-3">
+                                            <MenuItem 
+                                                item={item} 
+                                                isActive={pathname === item.href} 
+                                                onClick={closeMenu}
+                                            />
+                                        </div>
+                                    )}
                                 </div>
                             ))}
                         </div>
