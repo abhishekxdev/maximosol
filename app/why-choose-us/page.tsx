@@ -2,104 +2,116 @@ import { HeroHeader } from '@/components/header'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { CheckCircle, Award, Shield, Users, Clock, Target, Globe, Zap, HeadphonesIcon, Cog } from 'lucide-react'
+import { CheckCircle, Award, Shield, Users, Clock, Target, Globe, Zap, HeadphonesIcon, Cog, Brain, Settings, TrendingUp, DollarSign, Handshake, Layers } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export default function WhyChooseUs() {
   const advantages = [
     {
-      title: "99.9% Accuracy Guarantee",
-      description: "Industry-leading precision with rigorous quality control processes and multi-level validation.",
-      icon: Target,
+      title: "Domain Expertise Across Industries",
+      description: "With specialized experience in Machine Learning and AI, Retail, Customer Support, Surveillance, Finance, Insurance, and Social Media, we understand the nuances of each sector and tailor our services to meet your specific needs.",
+      icon: Brain,
       details: [
-        "Multi-tier quality assurance",
-        "Expert human validation", 
-        "Automated quality checks",
-        "Continuous improvement processes"
-      ],
-      image: "/accuracy.jpeg"
-    },
-    {
-      title: "Enterprise-Grade Security",
-      description: "Your data is protected with military-grade security measures and compliance certifications.",
-      icon: Shield,
-      details: [
-        "ISO 27001 certified processes",
-        "End-to-end encryption",
-        "Secure data handling protocols",
-        "GDPR & HIPAA compliance"
-      ],
-      image: "/security.jpeg"
-    },
-    {
-      title: "Expert Team",
-      description: "Skilled professionals with deep domain expertise across various industries and AI applications.",
-      icon: Users,
-      details: [
-        "Domain-specific expertise",
-        "Continuous training programs",
-        "Quality-focused culture",
-        "Experienced project managers"
+        "Machine Learning & AI specialization",
+        "Retail and e-commerce expertise", 
+        "Customer support optimization",
+        "Surveillance and security systems",
+        "Finance and insurance knowledge",
+        "Social media analytics"
       ],
       image: "/team.jpeg"
     },
     {
-      title: "Rapid Turnaround",
-      description: "Efficient workflows and scalable teams ensure fast delivery without compromising quality.",
-      icon: Clock,
+      title: "End-to-End Service Delivery",
+      description: "From data annotation and content management to back-office operations and customer support, our comprehensive suite of services enables you to focus on core business priorities while we handle the rest.",
+      icon: Layers,
       details: [
-        "Scalable workforce",
-        "Optimized workflows",
-        "24/7 operations capability",
-        "Agile project management"
+        "Complete data annotation services",
+        "Content management solutions",
+        "Back-office operations support",
+        "Customer service management",
+        "Quality assurance processes",
+        "Project management expertise"
       ],
-      image: "/rapid.jpeg"
+      image: "/advance.jpeg"
     },
     {
-      title: "Global Scale",
-      description: "Worldwide presence with local expertise to handle projects of any size and complexity.",
-      icon: Globe,
+      title: "Scalable & Flexible Solutions",
+      description: "Whether you're a startup or a global enterprise, our solutions are designed to scale with your business. We adapt quickly to changing demands without compromising on quality.",
+      icon: TrendingUp,
       details: [
-        "Multi-location operations",
-        "Diverse talent pool",
-        "Cultural expertise",
-        "Time zone coverage"
+        "Startup to enterprise scalability",
+        "Flexible resource allocation",
+        "Rapid demand adaptation",
+        "Quality maintenance at scale",
+        "Agile project methodologies",
+        "Custom solution development"
       ],
       image: "/global.jpeg"
     },
     {
-      title: "Advanced Technology",
-      description: "Cutting-edge tools and platforms that enhance efficiency and maintain consistency.",
+      title: "Technology-Driven Approach",
+      description: "We leverage smart tools, automation, and advanced workflows to ensure efficiency, consistency, and high accuracy in every project.",
       icon: Cog,
       details: [
-        "Proprietary annotation tools",
-        "AI-assisted workflows",
-        "Real-time collaboration",
-        "Advanced analytics"
+        "Smart automation tools",
+        "Advanced workflow systems",
+        "AI-powered quality checks",
+        "Real-time project tracking",
+        "Cutting-edge technology stack",
+        "Continuous process optimization"
       ],
       image: "/advance.jpeg"
+    },
+    {
+      title: "Client-Centric Focus",
+      description: "Your success is our mission. We build long-term partnerships by understanding your goals, aligning with your vision, and delivering on our promises—on time, every time.",
+      icon: Handshake,
+      details: [
+        "Long-term partnership approach",
+        "Goal-oriented service delivery",
+        "Vision alignment strategies",
+        "Promise-based commitments",
+        "Timely project completion",
+        "Dedicated account management"
+      ],
+      image: "/team.jpeg"
+    },
+    {
+      title: "Cost-Effective Excellence",
+      description: "Our global delivery model ensures you get the highest quality at competitive rates, helping you optimize costs without sacrificing performance.",
+      icon: DollarSign,
+      details: [
+        "Global delivery model",
+        "Competitive pricing structure",
+        "Cost optimization strategies",
+        "Performance maintenance",
+        "Value-driven solutions",
+        "ROI-focused approach"
+      ],
+      image: "/accuracy.jpeg"
     }
   ]
 
   const testimonials = [
     {
-      quote: "Maximo Solutions transformed our computer vision project. Their attention to detail and quality of annotations exceeded our expectations.",
+      quote: "Maximo's domain expertise in AI and machine learning transformed our computer vision project. Their attention to detail and industry knowledge exceeded our expectations.",
       author: "Dr. Sarah Chen",
       role: "AI Research Director",
       company: "TechMed Solutions"
     },
     {
-      quote: "The team's expertise in automotive AI data annotation helped us accelerate our autonomous vehicle development by 6 months.",
+      quote: "The scalability and flexibility of Maximo's solutions helped us grow from a startup to enterprise level without any service disruption. Truly impressive!",
       author: "Michael Rodriguez",
-      role: "Head of AI",
+      role: "Head of Operations",
       company: "AutoDrive Inc."
     },
     {
-      quote: "Outstanding quality and reliability. Their secure processes gave us confidence in handling our sensitive healthcare data.",
+      quote: "Their client-centric approach and technology-driven solutions gave us the competitive edge we needed in the finance sector. Outstanding partnership!",
       author: "Dr. Emily Johnson",
       role: "Chief Data Officer",
-      company: "HealthAI Systems"
+      company: "FinTech Innovations"
     }
   ]
 
@@ -115,21 +127,21 @@ export default function WhyChooseUs() {
               <div className="text-left">
                 <Badge variant="outline" className="mb-4">Why Choose Maximo</Badge>
                 <h1 className="text-5xl font-extrabold tracking-tight mb-6 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-                  The <span className="text-primary">Trusted Choice</span> for AI Data Annotation
+                  More Than Just <span className="text-primary">Data Services</span>
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                  Discover why leading organizations worldwide choose Maximo Solutions for their mission-critical AI data preparation needs.
+                  At Maximo, we understand that in today's fast-paced digital world, accuracy, efficiency, and scalability are critical to business success. That's why we offer more than just data services—we deliver customized, results-driven solutions that empower your business to thrive.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" className="group bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-4 rounded-full shadow-lg text-lg font-semibold">
                     <Link href="/contact">
-                      Get Started Today
+                      Start Your Partnership
                       <Zap className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                     </Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="px-8 py-4 rounded-full text-lg font-semibold border-2 border-primary/20 hover:bg-primary/5 hover:border-primary/30 transition-all">
                     <Link href="/services">
-                      Explore Services
+                      Explore Our Services
                       <Zap className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
@@ -153,10 +165,10 @@ export default function WhyChooseUs() {
       <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4">Our Competitive Edge</Badge>
-            <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">What Sets Us Apart</h2>
+            <Badge variant="outline" className="mb-4">What Sets Us Apart</Badge>
+            <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">Here's What Sets Us Apart</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Combining cutting-edge technology with human expertise to deliver unmatched quality and reliability.
+              Six key differentiators that make Maximo your ideal business partner for sustainable growth and success.
             </p>
           </div>
           
@@ -173,18 +185,23 @@ export default function WhyChooseUs() {
                       className="w-full h-80 object-cover rounded-xl shadow-lg"
                     />
                     <div className="absolute top-4 left-4">
-                      <advantage.icon className="h-8 w-8 text-primary" />
+                      <div className="h-12 w-12 rounded-full bg-gradient-to-r from-primary to-primary/80 flex items-center justify-center shadow-lg">
+                        <advantage.icon className="h-6 w-6 text-white" />
+                      </div>
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
                   </div>
                   <div className={`p-10 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
                     <CardHeader className="p-0 mb-8">
-                      <CardTitle className="text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">{advantage.title}</CardTitle>
+                      <div className="flex items-center gap-3 mb-4">
+                        <CheckCircle className="h-6 w-6 text-primary" />
+                        <CardTitle className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">{advantage.title}</CardTitle>
+                      </div>
                       <CardDescription className="text-lg leading-relaxed">{advantage.description}</CardDescription>
                     </CardHeader>
                     <CardContent className="p-0">
                       <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
-                        <h4 className="font-semibold mb-4 text-lg text-gray-800">Key Benefits:</h4>
+                        <h4 className="font-semibold mb-4 text-lg text-gray-800">Key Capabilities:</h4>
                         <ul className="space-y-3">
                           {advantage.details.map((detail, idx) => (
                             <li key={idx} className="flex items-center text-gray-700">
@@ -210,34 +227,34 @@ export default function WhyChooseUs() {
             <Badge variant="outline" className="mb-4">Proven Track Record</Badge>
             <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">Numbers That Speak for Themselves</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our commitment to excellence is reflected in our performance metrics
+              Our commitment to excellence is reflected in our performance metrics across all service areas
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
               { 
-                number: "99.9%", 
-                label: "Accuracy Rate", 
-                description: "Consistent precision across all projects",
-                icon: Target 
-              },
-              { 
-                number: "48hrs", 
-                label: "Average Turnaround", 
-                description: "Fast delivery without compromising quality",
-                icon: Clock 
+                number: "7+", 
+                label: "Industry Domains", 
+                description: "Specialized expertise across sectors",
+                icon: Brain 
               },
               { 
                 number: "500+", 
-                label: "Projects Completed", 
-                description: "Successful deliveries across industries",
+                label: "Projects Delivered", 
+                description: "End-to-end successful completions",
                 icon: Award 
               },
               { 
+                number: "99.9%", 
+                label: "Client Satisfaction", 
+                description: "Long-term partnership success",
+                icon: Handshake 
+              },
+              { 
                 number: "24/7", 
-                label: "Support Available", 
-                description: "Round-the-clock assistance",
+                label: "Global Support", 
+                description: "Round-the-clock service availability",
                 icon: HeadphonesIcon 
               }
             ].map((stat, index) => (
@@ -256,10 +273,10 @@ export default function WhyChooseUs() {
       <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4">Client Testimonials</Badge>
-            <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">What Our Clients Say</h2>
+            <Badge variant="outline" className="mb-4">Client Success Stories</Badge>
+            <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">What Our Partners Say</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Trusted by industry leaders worldwide
+              Trusted by industry leaders who have experienced the Maximo difference
             </p>
           </div>
           
@@ -288,17 +305,17 @@ export default function WhyChooseUs() {
             <Badge variant="outline" className="mb-4">Our Methodology</Badge>
             <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">Excellence in Every Step</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our proven process ensures consistent quality and successful project outcomes
+              Our proven process ensures consistent quality and successful project outcomes across all service areas
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
             {[
-              { step: "01", title: "Consultation", description: "Understanding your specific requirements" },
-              { step: "02", title: "Planning", description: "Designing the optimal annotation strategy" },
-              { step: "03", title: "Execution", description: "Expert annotation with quality controls" },
-              { step: "04", title: "Validation", description: "Multi-level quality assurance checks" },
-              { step: "05", title: "Delivery", description: "Timely delivery with ongoing support" }
+              { step: "01", title: "Discovery", description: "Understanding your business goals and requirements" },
+              { step: "02", title: "Strategy", description: "Designing customized solutions aligned with your vision" },
+              { step: "03", title: "Execution", description: "Delivering services with precision and quality focus" },
+              { step: "04", title: "Validation", description: "Multi-level quality assurance and testing" },
+              { step: "05", title: "Partnership", description: "Ongoing support and continuous improvement" }
             ].map((process, index) => (
               <Card key={index} className="text-center p-8 border-0 bg-white/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
@@ -318,42 +335,42 @@ export default function WhyChooseUs() {
           <div className="max-w-4xl mx-auto text-center">
             <Card className="p-12 border-0 bg-white/60 backdrop-blur-sm shadow-2xl">
               <div className="mb-8">
-                <Badge variant="outline" className="mb-4">Get Started Today</Badge>
+                <Badge variant="outline" className="mb-4">Ready to Get Started?</Badge>
                 <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-                  Experience the Maximo Difference
+                  Experience the Maximo Advantage
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Join hundreds of satisfied clients who have transformed their AI projects with our expert data annotation services.
+                  Join hundreds of satisfied clients who have transformed their business operations with our comprehensive, results-driven solutions.
                 </p>
               </div>
               
               <div className="grid md:grid-cols-2 gap-6 mb-10">
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <Award className="h-5 w-5 text-primary" />
-                    <h3 className="font-semibold text-lg text-gray-800">Proven Excellence</h3>
+                    <Handshake className="h-5 w-5 text-primary" />
+                    <h3 className="font-semibold text-lg text-gray-800">Partnership Approach</h3>
                   </div>
-                  <p className="text-sm text-gray-600">99.9% accuracy rate across all projects</p>
+                  <p className="text-sm text-gray-600">Long-term relationships built on trust and results</p>
                 </div>
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <Zap className="h-5 w-5 text-primary" />
-                    <h3 className="font-semibold text-lg text-gray-800">Fast Delivery</h3>
+                    <DollarSign className="h-5 w-5 text-primary" />
+                    <h3 className="font-semibold text-lg text-gray-800">Cost-Effective Excellence</h3>
                   </div>
-                  <p className="text-sm text-gray-600">48-hour average turnaround time</p>
+                  <p className="text-sm text-gray-600">Premium quality at competitive global rates</p>
                 </div>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="group bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-4 rounded-full shadow-lg text-lg font-semibold">
                   <Link href="/contact">
-                    Start Your Project Today
+                    Start Your Partnership Today
                     <Zap className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="px-8 py-4 rounded-full text-lg font-semibold border-2 border-primary/20 hover:bg-primary/5 hover:border-primary/30 transition-all">
                   <Link href="/services">
-                    Explore Our Services
+                    Explore All Services
                     <Zap className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
