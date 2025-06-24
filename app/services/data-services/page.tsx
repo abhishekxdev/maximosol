@@ -2,7 +2,7 @@ import { HeroHeader } from '@/components/header'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { CheckCircle, ArrowRight, Image as ImageIcon, Video, FileText, Headphones, Box, Settings, Clock, ExternalLink } from 'lucide-react'
+import { CheckCircle, ArrowRight, Image as ImageIcon, Video, FileText, Headphones, Box, Settings, Clock, ExternalLink, Database, Filter, Edit, BarChart3 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -74,6 +74,70 @@ export default function DataServices() {
       applications: ["Autonomous Vehicles", "Robotics", "Smart Cities", "AR/VR"],
       image: "/3dcloud.jpeg",
       href: "/services/3d-point-cloud"
+    },
+    {
+      title: "Data Collection",
+      description: "Comprehensive data gathering from multiple sources to build robust datasets.",
+      icon: Database,
+      features: [
+        "Web scraping and crawling",
+        "Survey data collection",
+        "API data extraction",
+        "Real-time data gathering",
+        "Multi-source aggregation",
+        "Custom data acquisition"
+      ],
+      applications: ["Market Research", "AI Training", "Business Intelligence", "Academic Research"],
+      image: "/custom.jpeg",
+      href: "/services/data-collection"
+    },
+    {
+      title: "Data Entry",
+      description: "Accurate and efficient manual data entry services for various document types.",
+      icon: Edit,
+      features: [
+        "Document digitization",
+        "Form processing",
+        "Database entry",
+        "Invoice processing",
+        "Catalog management",
+        "CRM data entry"
+      ],
+      applications: ["Healthcare Records", "Financial Documents", "E-commerce", "Legal Services"],
+      image: "/textan.jpeg",
+      href: "/services/data-entry"
+    },
+    {
+      title: "Data Cleansing",
+      description: "Data quality improvement through cleaning, validation, and standardization.",
+      icon: Filter,
+      features: [
+        "Duplicate removal",
+        "Data validation",
+        "Format standardization",
+        "Error correction",
+        "Missing data handling",
+        "Quality assurance"
+      ],
+      applications: ["CRM Systems", "Marketing Databases", "Financial Records", "Healthcare Data"],
+      image: "/accuracy.jpeg",
+      href: "/services/data-cleansing"
+    },
+    {
+      title: "Data Processing",
+      description: "Advanced data transformation and analysis for actionable business insights.",
+      icon: BarChart3,
+      features: [
+        "Data transformation",
+        "Statistical analysis",
+        "Data mining",
+        "Pattern recognition",
+        "Report generation",
+        "Business intelligence"
+      ],
+      applications: ["Business Analytics", "Predictive Modeling", "Performance Metrics", "Decision Support"],
+      image: "/advance.jpeg",
+      href: "/services/data-processing"
     }
   ]
 
@@ -87,10 +151,10 @@ export default function DataServices() {
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="outline" className="mb-4">Data Services</Badge>
             <h1 className="text-5xl font-extrabold tracking-tight mb-6 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-              Comprehensive <span className="text-primary">Data Annotation</span> Solutions
+              Comprehensive <span className="text-primary">Data Solutions</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              From image and video annotation to text and audio labeling, we provide end-to-end data preparation services that power the next generation of AI applications.
+              From data annotation and collection to processing and cleansing, we provide end-to-end data services that power the next generation of AI applications and business intelligence.
             </p>
           </div>
         </div>
@@ -176,12 +240,12 @@ export default function DataServices() {
               {
                 step: "01",
                 title: "Project Analysis",
-                description: "We analyze your requirements and design a custom annotation strategy."
+                description: "We analyze your requirements and design a custom data strategy."
               },
               {
                 step: "02", 
                 title: "Team Assembly",
-                description: "Expert annotators with relevant domain knowledge are assigned to your project."
+                description: "Expert data specialists with relevant domain knowledge are assigned to your project."
               },
               {
                 step: "03",
@@ -214,10 +278,10 @@ export default function DataServices() {
               <div className="mb-8">
                 <Badge variant="outline" className="mb-4">Get Started Today</Badge>
                 <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-                  Ready to Transform Your AI Project?
+                  Ready to Transform Your Data?
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Let's discuss your data annotation needs and create a custom solution that accelerates your AI development.
+                  Let's discuss your data needs and create a custom solution that accelerates your business growth and AI development.
                 </p>
               </div>
               
@@ -227,7 +291,7 @@ export default function DataServices() {
                     <CheckCircle className="h-5 w-5 text-primary" />
                     <h3 className="font-semibold text-lg text-gray-800">Free Consultation</h3>
                   </div>
-                  <p className="text-sm text-gray-600">Get expert advice on your annotation strategy</p>
+                  <p className="text-sm text-gray-600">Get expert advice on your data strategy</p>
                 </div>
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
