@@ -18,6 +18,9 @@ import {
   IconDatabase,
   IconClock,
   IconPlant2,
+  IconMap,
+  IconHeadphones,
+  IconPhone,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -301,6 +304,102 @@ const EnergySkeleton = () => {
   );
 };
 
+const GeospatialSkeleton = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.8 }}
+      className="flex flex-1 w-full h-full min-h-[6rem] relative overflow-hidden rounded-xl"
+    >
+      <Image
+        src="/agriculture.jpeg"
+        alt="Geospatial"
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+      <div className="absolute bottom-4 left-4 text-white">
+        <div className="flex items-center space-x-2 mb-2">
+          <div className="h-8 w-8 rounded-full bg-teal-500 flex items-center justify-center">
+            <IconMap className="h-4 w-4 text-white" />
+          </div>
+          <h3 className="text-lg font-semibold">Geospatial & Mapping</h3>
+        </div>
+        <div className="flex flex-wrap gap-1">
+          <Badge variant="secondary" className="text-xs">Satellite Imagery</Badge>
+          <Badge variant="secondary" className="text-xs">GIS Analysis</Badge>
+          <Badge variant="secondary" className="text-xs">Location Intelligence</Badge>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const CustomerSupportSkeleton = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.9 }}
+      className="flex flex-1 w-full h-full min-h-[6rem] relative overflow-hidden rounded-xl"
+    >
+      <Image
+        src="/team.jpeg"
+        alt="Customer Support"
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+      <div className="absolute bottom-4 left-4 text-white">
+        <div className="flex items-center space-x-2 mb-2">
+          <div className="h-8 w-8 rounded-full bg-indigo-500 flex items-center justify-center">
+            <IconHeadphones className="h-4 w-4 text-white" />
+          </div>
+          <h3 className="text-lg font-semibold">Customer Support</h3>
+        </div>
+        <div className="flex flex-wrap gap-1">
+          <Badge variant="secondary" className="text-xs">24/7 Support</Badge>
+          <Badge variant="secondary" className="text-xs">Multi-channel</Badge>
+          <Badge variant="secondary" className="text-xs">Technical Help</Badge>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const TeleSalesSkeleton = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 1.0 }}
+      className="flex flex-1 w-full h-full min-h-[6rem] relative overflow-hidden rounded-xl"
+    >
+      <Image
+        src="/fintech.jpeg"
+        alt="Tele Sales"
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+      <div className="absolute bottom-4 left-4 text-white">
+        <div className="flex items-center space-x-2 mb-2">
+          <div className="h-8 w-8 rounded-full bg-orange-500 flex items-center justify-center">
+            <IconPhone className="h-4 w-4 text-white" />
+          </div>
+          <h3 className="text-lg font-semibold">Tele Sales</h3>
+        </div>
+        <div className="flex flex-wrap gap-1">
+          <Badge variant="secondary" className="text-xs">Lead Generation</Badge>
+          <Badge variant="secondary" className="text-xs">Sales Conversion</Badge>
+          <Badge variant="secondary" className="text-xs">Market Research</Badge>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const industryItems = [
   {
     title: "Autonomous Vehicles",
@@ -356,5 +455,38 @@ const industryItems = [
     header: <FinanceSkeleton />,
     className: "md:col-span-1",
     icon: <IconCash className="h-4 w-4 text-green-500" />,
+  },
+  {
+    title: "Geospatial & Mapping",
+    description: (
+      <span className="text-sm">
+        Powering location intelligence and satellite imagery analysis.
+      </span>
+    ),
+    header: <GeospatialSkeleton />,
+    className: "md:col-span-1",
+    icon: <IconMap className="h-4 w-4 text-teal-500" />,
+  },
+  {
+    title: "Customer Support",
+    description: (
+      <span className="text-sm">
+        Delivering exceptional customer service and technical assistance.
+      </span>
+    ),
+    header: <CustomerSupportSkeleton />,
+    className: "md:col-span-1",
+    icon: <IconHeadphones className="h-4 w-4 text-indigo-500" />,
+  },
+  {
+    title: "Tele Sales",
+    description: (
+      <span className="text-sm">
+        Driving business growth through professional telemarketing services.
+      </span>
+    ),
+    header: <TeleSalesSkeleton />,
+    className: "md:col-span-1",
+    icon: <IconPhone className="h-4 w-4 text-orange-500" />,
   },
 ];

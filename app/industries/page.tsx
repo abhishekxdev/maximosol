@@ -25,7 +25,7 @@ export default function Industries() {
               Empowering <span className="text-primary">Every Industry</span> with AI
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              From healthcare to autonomous vehicles, we provide specialized data annotation services tailored to the unique requirements of diverse industries.
+              From healthcare to autonomous vehicles, geospatial mapping to customer support, we provide specialized data annotation and business services tailored to the unique requirements of diverse industries.
             </p>
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function Industries() {
                   Ready to Transform Your Industry?
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Join industry leaders who trust Maximo Solutions for their AI data needs. Let&apos;s discuss your specific requirements and create a custom solution.
+                  Join industry leaders who trust Maximo Solutions for their AI data needs and business services. Let&apos;s discuss your specific requirements and create a custom solution.
                 </p>
               </div>
               
