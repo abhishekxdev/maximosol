@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { MapPin, Phone, Mail, Clock, Send, MessageSquare, Users, Award, CheckCircle, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
@@ -14,15 +13,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
+    phone: '',
     email: '',
-    company: '',
-    industry: '',
-    service: '',
-    projectType: '',
-    budget: '',
-    timeline: '',
-    message: '',
-    dataVolume: ''
+    message: ''
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -38,15 +31,9 @@ export default function Contact() {
       setSubmitStatus('success')
       setFormData({
         name: '',
+        phone: '',
         email: '',
-        company: '',
-        industry: '',
-        service: '',
-        projectType: '',
-        budget: '',
-        timeline: '',
-        message: '',
-        dataVolume: ''
+        message: ''
       })
     } catch (error) {
       setSubmitStatus('error')
@@ -59,56 +46,6 @@ export default function Contact() {
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
-
-  const industries = [
-    'Healthcare & Medical',
-    'Automotive & Transportation',
-    'Finance & Banking',
-    'Retail & E-commerce',
-    'Manufacturing',
-    'Agriculture',
-    'Gaming & Entertainment',
-    'Security & Surveillance',
-    'Energy & Utilities',
-    'Other'
-  ]
-
-  const services = [
-    'Image Annotation',
-    'Video Annotation',
-    'Text Annotation',
-    'Audio Annotation',
-    '3D Point Cloud Annotation',
-    'Custom Solution',
-    'Multiple Services'
-  ]
-
-  const projectTypes = [
-    'Computer Vision',
-    'Natural Language Processing',
-    'Machine Learning Training',
-    'Data Validation',
-    'Quality Assurance',
-    'Research & Development',
-    'Other'
-  ]
-
-  const budgetRanges = [
-    'Under $10,000',
-    '$10,000 - $50,000',
-    '$50,000 - $100,000',
-    '$100,000 - $500,000',
-    'Over $500,000',
-    'Prefer to discuss'
-  ]
-
-  const timelines = [
-    'Rush (1-2 weeks)',
-    'Standard (2-4 weeks)',
-    'Extended (1-3 months)',
-    'Long-term (3+ months)',
-    'Ongoing partnership'
-  ]
 
   return (
     <div className="min-h-screen">
@@ -139,160 +76,64 @@ export default function Contact() {
                 <CardHeader>
                   <CardTitle className="text-2xl flex items-center gap-3">
                     <MessageSquare className="h-6 w-6 text-primary" />
-                    Request a Quote
+                    Send us a Message
                   </CardTitle>
                   <CardDescription className="text-gray-700">
-                    Tell us about your project and we'll get back to you within 24 hours with a detailed proposal.
+                    Fill out the form below and we'll get back to you within 24 hours.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Basic Information */}
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
-                        <Input
-                          id="name"
-                          value={formData.name}
-                          onChange={(e) => handleInputChange('name', e.target.value)}
-                          placeholder="John Doe"
-                          required
-                          className="bg-white/80"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange('email', e.target.value)}
-                          placeholder="john@company.com"
-                          required
-                          className="bg-white/80"
-                        />
-                      </div>
+                    {/* Name */}
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name *</Label>
+                      <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => handleInputChange('name', e.target.value)}
+                        placeholder="Enter your full name"
+                        required
+                        className="bg-white/80"
+                      />
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="company">Company Name</Label>
-                        <Input
-                          id="company"
-                          value={formData.company}
-                          onChange={(e) => handleInputChange('company', e.target.value)}
-                          placeholder="Your Company"
-                          className="bg-white/80"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="industry">Industry</Label>
-                        <Select value={formData.industry} onValueChange={(value) => handleInputChange('industry', value)}>
-                          <SelectTrigger className="bg-white/80">
-                            <SelectValue placeholder="Select your industry" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {industries.map((industry) => (
-                              <SelectItem key={industry} value={industry}>
-                                {industry}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
+                    {/* Phone */}
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number *</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange('phone', e.target.value)}
+                        placeholder="Enter your phone number"
+                        required
+                        className="bg-white/80"
+                      />
                     </div>
 
-                    {/* Project Details */}
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-gray-900">Project Details</h3>
-                      
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="service">Service Needed *</Label>
-                          <Select value={formData.service} onValueChange={(value) => handleInputChange('service', value)} required>
-                            <SelectTrigger className="bg-white/80">
-                              <SelectValue placeholder="Select service type" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {services.map((service) => (
-                                <SelectItem key={service} value={service}>
-                                  {service}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="projectType">Project Type</Label>
-                          <Select value={formData.projectType} onValueChange={(value) => handleInputChange('projectType', value)}>
-                            <SelectTrigger className="bg-white/80">
-                              <SelectValue placeholder="Select project type" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {projectTypes.map((type) => (
-                                <SelectItem key={type} value={type}>
-                                  {type}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                      </div>
-
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="budget">Budget Range</Label>
-                          <Select value={formData.budget} onValueChange={(value) => handleInputChange('budget', value)}>
-                            <SelectTrigger className="bg-white/80">
-                              <SelectValue placeholder="Select budget range" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {budgetRanges.map((range) => (
-                                <SelectItem key={range} value={range}>
-                                  {range}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="timeline">Timeline</Label>
-                          <Select value={formData.timeline} onValueChange={(value) => handleInputChange('timeline', value)}>
-                            <SelectTrigger className="bg-white/80">
-                              <SelectValue placeholder="Select timeline" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {timelines.map((timeline) => (
-                                <SelectItem key={timeline} value={timeline}>
-                                  {timeline}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="dataVolume">Estimated Data Volume</Label>
-                        <Input
-                          id="dataVolume"
-                          value={formData.dataVolume}
-                          onChange={(e) => handleInputChange('dataVolume', e.target.value)}
-                          placeholder="e.g., 10,000 images, 100 hours of video"
-                          className="bg-white/80"
-                        />
-                      </div>
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange('email', e.target.value)}
+                        placeholder="Enter your email address"
+                        required
+                        className="bg-white/80"
+                      />
                     </div>
 
                     {/* Message */}
                     <div className="space-y-2">
-                      <Label htmlFor="message">Project Description *</Label>
+                      <Label htmlFor="message">Message *</Label>
                       <Textarea
                         id="message"
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
-                        placeholder="Please describe your project requirements, specific annotation needs, quality standards, and any other relevant details..."
-                        rows={5}
+                        placeholder="Tell us about your project requirements, data annotation needs, or any questions you have..."
+                        rows={6}
                         required
                         className="bg-white/80"
                       />
@@ -315,7 +156,7 @@ export default function Contact() {
 
                       <Button 
                         type="submit" 
-                        disabled={isSubmitting || !formData.name || !formData.email || !formData.service || !formData.message}
+                        disabled={isSubmitting || !formData.name || !formData.phone || !formData.email || !formData.message}
                         className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-4 rounded-full shadow-lg text-lg font-semibold group"
                       >
                         {isSubmitting ? (
