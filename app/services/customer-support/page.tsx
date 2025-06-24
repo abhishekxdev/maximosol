@@ -2,116 +2,104 @@ import { HeroHeader } from '@/components/header'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { CheckCircle, ArrowRight, Headphones, MessageSquare, Clock, Users, Globe, Phone, Mail, ExternalLink, BarChart3, Zap, Heart } from 'lucide-react'
+import { CheckCircle, ArrowRight, Headphones, MessageSquare, Clock, Users, Globe, Phone, Mail, ExternalLink, BarChart3, Zap, Heart, Shield, Settings } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export default function CustomerSupport() {
   const capabilities = [
     {
-      title: "24/7 Multi-Channel Support",
-      description: "Round-the-clock customer service across phone, email, chat, and social media platforms.",
-      icon: Headphones,
+      title: "Inbound Call Support",
+      description: "Responding to customer queries, product assistance, complaints, order tracking, billing, and issue resolution through live phone calls.",
+      icon: Phone,
       features: [
-        "24/7 availability",
-        "Multi-channel support",
-        "Real-time assistance"
+        "Customer query handling",
+        "Product assistance",
+        "Order tracking & billing"
       ],
       applications: ["E-commerce", "SaaS Platforms", "Healthcare", "Financial Services"],
       image: "/team.jpeg"
     },
     {
-      title: "Technical Help Desk",
-      description: "Expert technical assistance for software, hardware, and IT-related customer inquiries.",
-      icon: Users,
-      features: [
-        "Technical troubleshooting",
-        "Software support",
-        "Hardware assistance"
-      ],
-      applications: ["Software Companies", "IT Services", "Technology Products", "Cloud Services"],
-      image: "/advance.jpeg"
-    },
-    {
-      title: "Live Chat Services",
-      description: "Real-time chat support to engage customers instantly and resolve queries efficiently.",
+      title: "Live Chat Support (24/7)",
+      description: "Real-time website and in-app chat support for instant help with product questions, order assistance, and general inquiries—boosting customer satisfaction and conversions.",
       icon: MessageSquare,
       features: [
-        "Instant response",
-        "Real-time engagement",
-        "Query resolution"
+        "Real-time chat support",
+        "Instant help & assistance",
+        "Conversion optimization"
       ],
       applications: ["E-commerce Websites", "Service Portals", "Mobile Apps", "Online Platforms"],
       image: "/fintech.jpeg"
     },
     {
-      title: "Help Desk Management",
-      description: "Comprehensive ticket management system for tracking, prioritizing, and resolving customer issues.",
-      icon: Clock,
+      title: "Email Support",
+      description: "Prompt and detailed responses for billing issues, account changes, feedback, and documentation-related requests.",
+      icon: Mail,
       features: [
-        "Ticket management",
-        "Issue prioritization",
-        "Resolution tracking"
+        "Billing issue resolution",
+        "Account management",
+        "Documentation support"
       ],
-      applications: ["Enterprise Software", "Service Companies", "Product Support", "Internal IT"],
+      applications: ["Business Services", "Software Companies", "Subscription Services", "Enterprise Solutions"],
       image: "/accuracy.jpeg"
     },
     {
-      title: "Multilingual Support",
-      description: "Customer service in multiple languages to serve global customer base effectively.",
+      title: "Social Media Support",
+      description: "Managing queries, feedback, and complaints across platforms like Facebook, Instagram, and Twitter/X with timely and brand-aligned responses.",
       icon: Globe,
       features: [
-        "Multiple languages",
-        "Cultural awareness",
-        "Global coverage"
+        "Multi-platform management",
+        "Brand-aligned responses",
+        "Complaint resolution"
       ],
-      applications: ["International Business", "Global E-commerce", "Travel & Tourism", "Education"],
+      applications: ["Social Commerce", "Brand Management", "Digital Marketing", "Community Management"],
       image: "/global.jpeg"
     },
     {
-      title: "Customer Success Management",
-      description: "Proactive customer relationship management to ensure satisfaction and retention.",
-      icon: Heart,
+      title: "Outbound Support",
+      description: "Feedback calls, follow-ups, customer retention outreach, subscription renewals, and appointment confirmations.",
+      icon: Headphones,
       features: [
-        "Proactive outreach",
-        "Relationship management",
-        "Retention strategies"
+        "Customer retention calls",
+        "Subscription renewals",
+        "Appointment confirmations"
       ],
-      applications: ["SaaS Companies", "Subscription Services", "B2B Platforms", "Enterprise Solutions"],
-      image: "/retail.jpeg"
+      applications: ["Subscription Services", "Healthcare", "Professional Services", "B2B Solutions"],
+      image: "/advance.jpeg"
     }
   ]
 
   const whyChooseUs = [
     {
-      icon: "🎧",
-      title: "Expert Support Agents",
-      description: "Trained customer service professionals with deep product knowledge and communication skills."
+      icon: "🗣️",
+      title: "Trained, multilingual agents with domain-specific knowledge",
+      description: "Professional customer service agents with deep industry expertise and multilingual capabilities."
     },
     {
-      icon: "⚡",
-      title: "Fast Response Times",
-      description: "Quick resolution of customer queries with industry-leading response and resolution times."
+      icon: "🕔",
+      title: "24/7/365 availability or flexible coverage based on your business hours",
+      description: "Round-the-clock support or customized coverage that aligns with your operational needs."
     },
     {
-      icon: "🌍",
-      title: "Global Coverage",
-      description: "24/7 support across multiple time zones with multilingual capabilities."
+      icon: "📞",
+      title: "Omnichannel support—phone, live chat, email & social media",
+      description: "Seamless customer experience across all communication channels."
     },
     {
-      icon: "📊",
-      title: "Performance Analytics",
-      description: "Detailed reporting and analytics to track customer satisfaction and support metrics."
+      icon: "🧩",
+      title: "Seamless CRM and helpdesk platform integration",
+      description: "Easy integration with your existing customer management systems and workflows."
     },
     {
-      icon: "🔧",
-      title: "Custom Solutions",
-      description: "Tailored support solutions designed to meet your specific business requirements."
+      icon: "🔄",
+      title: "Scalable solutions for startups, SMEs, and enterprise operations",
+      description: "Flexible support solutions that grow with your business from startup to enterprise level."
     },
     {
-      icon: "💝",
-      title: "Customer-Centric Approach",
-      description: "Focus on customer satisfaction and building long-term relationships with your clients."
+      icon: "🔐",
+      title: "Data privacy and security aligned with global standards (GDPR, HIPAA, ISO)",
+      description: "Strict compliance with international data protection and security regulations."
     }
   ]
 
@@ -128,7 +116,7 @@ export default function CustomerSupport() {
               Exceptional <span className="text-primary">Customer Support</span> Solutions
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Enhance your customer experience with our comprehensive 24/7 customer service solutions. From technical support to live chat services, we help you build lasting customer relationships.
+              Enhance your customer experience with our comprehensive customer service solutions. From inbound call support to social media management, we help you build lasting customer relationships and drive business growth.
             </p>
           </div>
         </div>
@@ -138,12 +126,12 @@ export default function CustomerSupport() {
       <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4">Our Customer Support Capabilities</Badge>
+            <Badge variant="outline" className="mb-4">Our Customer Support Capabilities Include</Badge>
             <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
               Complete Customer Service Solutions
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From multi-channel support to technical assistance, we provide comprehensive customer service solutions that enhance satisfaction and loyalty.
+              From inbound call support to social media management, we provide comprehensive customer service solutions that enhance satisfaction and drive conversions.
             </p>
           </div>
           
@@ -208,12 +196,12 @@ export default function CustomerSupport() {
       <section className="py-24 section-bg">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4">Why Choose Maximo for Customer Support?</Badge>
+            <Badge variant="outline" className="mb-4">✅ Why Choose Maximo for Customer Support?</Badge>
             <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
               Your Trusted Customer Service Partner
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Experience the difference with our professional, customer-centric approach to support services.
+              Experience the difference with our professional, customer-centric approach to support services that drive satisfaction and business growth.
             </p>
           </div>
           
@@ -242,7 +230,7 @@ export default function CustomerSupport() {
             <Badge variant="outline" className="mb-4">Our Process</Badge>
             <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">How We Deliver Excellence</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our proven methodology ensures exceptional customer service and satisfaction
+              Our proven methodology ensures exceptional customer service and satisfaction across all touchpoints
             </p>
           </div>
           
@@ -251,22 +239,22 @@ export default function CustomerSupport() {
               {
                 step: "01",
                 title: "Needs Assessment",
-                description: "We analyze your customer support requirements and design a customized service strategy."
+                description: "We analyze your customer support requirements and design a customized omnichannel service strategy."
               },
               {
                 step: "02", 
                 title: "Team Training",
-                description: "Our agents receive comprehensive training on your products, services, and brand values."
+                description: "Our agents receive comprehensive training on your products, services, brand values, and industry-specific knowledge."
               },
               {
                 step: "03",
                 title: "Service Delivery",
-                description: "Professional customer support with real-time monitoring and quality assurance."
+                description: "Professional customer support across all channels with real-time monitoring and quality assurance."
               },
               {
                 step: "04",
                 title: "Continuous Improvement",
-                description: "Regular performance reviews and optimization based on customer feedback and metrics."
+                description: "Regular performance reviews and optimization based on customer feedback, analytics, and industry best practices."
               }
             ].map((process, index) => (
               <Card key={index} className="text-center p-8 border-0 bg-white/60 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
@@ -290,7 +278,7 @@ export default function CustomerSupport() {
               Proven Customer Support Excellence
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Numbers that demonstrate our commitment to exceptional customer service
+              Numbers that demonstrate our commitment to exceptional customer service and business growth
             </p>
           </div>
           
@@ -303,7 +291,7 @@ export default function CustomerSupport() {
                 icon: Heart 
               },
               { 
-                number: "< 2min", 
+                number: "< 30sec", 
                 label: "Response Time", 
                 description: "Average first response time",
                 icon: Zap 
@@ -315,7 +303,7 @@ export default function CustomerSupport() {
                 icon: Clock 
               },
               { 
-                number: "20+", 
+                number: "25+", 
                 label: "Languages Supported", 
                 description: "Multilingual support capabilities",
                 icon: Globe 
@@ -343,24 +331,24 @@ export default function CustomerSupport() {
                   Ready to Elevate Your Customer Support?
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Let's discuss your customer support needs and create a custom solution that enhances satisfaction and builds lasting relationships.
+                  Let's discuss your customer support needs and create a custom omnichannel solution that enhances satisfaction, drives conversions, and builds lasting relationships.
                 </p>
               </div>
               
               <div className="grid md:grid-cols-2 gap-6 mb-10">
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <Headphones className="h-5 w-5 text-primary" />
-                    <h3 className="font-semibold text-lg text-gray-800">Expert Agents</h3>
+                    <Settings className="h-5 w-5 text-primary" />
+                    <h3 className="font-semibold text-lg text-gray-800">Omnichannel Integration</h3>
                   </div>
-                  <p className="text-sm text-gray-600">Trained customer service professionals</p>
+                  <p className="text-sm text-gray-600">Seamless support across all channels</p>
                 </div>
                 <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6">
                   <div className="flex items-center gap-4 mb-3">
-                    <BarChart3 className="h-5 w-5 text-primary" />
-                    <h3 className="font-semibold text-lg text-gray-800">Performance Analytics</h3>
+                    <Shield className="h-5 w-5 text-primary" />
+                    <h3 className="font-semibold text-lg text-gray-800">Global Compliance</h3>
                   </div>
-                  <p className="text-sm text-gray-600">Detailed reporting and insights</p>
+                  <p className="text-sm text-gray-600">GDPR, HIPAA, and ISO standards</p>
                 </div>
               </div>
               
